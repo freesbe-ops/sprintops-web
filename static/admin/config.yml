@@ -1,5 +1,6 @@
 backend:
-  name: test
+  name: git-gateway
+  branch: main
 
 locale: 'es'
 
