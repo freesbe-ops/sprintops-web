@@ -1,3 +1,30 @@
-baseURL = 'https://example.org/'
-locale = 'en-us'
-title = 'My New Hugo Project'
+baseURL = "https://sprintops.es/"
+languageCode = "es"
+title = "SprintOps"
+theme = "mainroad"
+
+[Params]
+  description = "Consultoría de ecommerce basada en porcentaje sobre ventas"
+  author = "SprintOps"
+
+[menu]
+  [[menu.main]]
+    name = "Inicio"
+    url = "/"
+    weight = 1
+  [[menu.main]]
+    name = "Servicios"
+    url = "/servicios/"
+    weight = 2
+  [[menu.main]]
+    name = "Cómo funciona"
+    url = "/como-funciona/"
+    weight = 3
+  [[menu.main]]
+    name = "Caso de éxito"
+    url = "/caso-exito/"
+    weight = 4
+  [[menu.main]]
+    name = "Contacto"
+    url = "/contacto/"
+    weight = 5

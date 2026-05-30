@@ -1,0 +1,111 @@
+/* =========================================
+   SPRINTOPS – Fons negre, text blanc,
+   accent taronja butà (ressaltat)
+   Tipografia: Helvetica
+   Sense botons, només enllaços de text
+========================================= */
+
+:root {
+    --negre: #000000;
+    --blanc: #ffffff;
+    --taronja: #FF6600;
+}
+
+/* Fons general negre, text blanc */
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background-color: var(--negre);
+    color: var(--blanc);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+/* Capçalera: negre amb línia inferior taronja */
+.site-header {
+    background-color: var(--negre);
+    border-bottom: 1px solid var(--taronja);
+}
+
+.site-title a,
+.site-header a {
+    color: var(--blanc);
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.main-nav .menu li a {
+    color: var(--blanc);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+}
+
+.main-nav .menu li a:hover {
+    color: var(--taronja);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+/* Enllaços de text: blancs, subratllat taronja en hover */
+a {
+    color: var(--blanc);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+a:hover {
+    color: var(--taronja);
+    border-bottom-color: var(--taronja);
+    text-decoration: none;
+}
+
+/* Enllaços que semblen "ressaltats" (p.ex. crides a l'acció) */
+.cta-link {
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--taronja);
+}
+
+.cta-link:hover {
+    color: var(--blanc);
+    border-bottom-color: var(--taronja);
+}
+
+/* Eliminem qualsevol estil de botó preexistent (per si de cas) */
+.btn, a.btn, input[type="submit"], button {
+    all: unset;            /* treu tot l'estil de botó */
+    display: inline;       /* es comporta com a text */
+    color: var(--taronja);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    cursor: pointer;
+    border-bottom: 1px solid transparent;
+}
+
+.btn:hover, a.btn:hover, input[type="submit"]:hover, button:hover {
+    color: var(--blanc);
+    border-bottom-color: var(--taronja);
+}
+
+/* Títols: blancs, potents */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--blanc);
+    font-weight: 700;
+}
+
+/* Peu de pàgina: negre amb text blanc i línia taronja superior */
+.site-footer {
+    background-color: var(--negre);
+    color: var(--blanc);
+    border-top: 1px solid var(--taronja);
+    padding: 30px 0;
+}
+
+.site-footer a {
+    color: var(--taronja);
+    border-bottom: none;
+}

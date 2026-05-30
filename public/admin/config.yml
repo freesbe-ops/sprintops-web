@@ -1,0 +1,21 @@
+backend:
+  name: test
+
+locale: 'es'
+
+media_folder: 'static/img'
+public_folder: '/img'
+
+collections:
+  - name: 'pagines'
+    label: 'Pàgines'
+    label_singular: 'Pàgina'
+    folder: 'content'
+    create: true
+    slug: '{{slug}}'
+    fields:
+      - {label: "Títol", name: "title", widget: "string"}
+      - {label: "Data", name: "date", widget: "datetime"}
+      - {label: "Contingut", name: "body", widget: "markdown"}
+    editor:
+      preview: true
