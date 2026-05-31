@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ .Title }} – SprintOps</title>
+  <link rel="stylesheet" href="{{ "css/custom.css" | relURL }}">
+  <style>
+    /* Reinici mínim */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #000; color: #fff; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; }
+    a { color: #FF6600; text-decoration: none; }
+    .btn, a.btn {
+      display: inline-block; background: #FF6600; color: #000; border: none;
+      padding: 12px 24px; font-weight: bold; text-transform: uppercase;
+      letter-spacing: 0.5px; margin: 10px 0; text-decoration: none;
+      transition: background 0.2s;
+    }
+    .btn:hover, a.btn:hover { background: #fff; color: #000; }
+  </style>
+</head>
+<body>
+{{ partial "header.html" . }}
+  {{ .Content }}
+  {{ range .Params.sections }}
+    {{ if eq .template "hero" }}
+      {{ partial "blocks/hero.html" . }}
+    {{ else if eq .template "features" }}
+      {{ partial "blocks/features.html" . }}
+    {{ end }}
+  {{ end }}
+</body>
+</html>

@@ -1,7 +1,7 @@
-<section class="hero">
-  {{ if .image }}<div class="hero-bg" style="background-image: url({{ .image | relURL }});"></div>{{ end }}
+<section class="hero snap-section" id="inici">
   <div class="hero-content">
     <h1>{{ .heading }}</h1>
     {{ if .subtext }}<p>{{ .subtext }}</p>{{ end }}
+    {{ if .cta }}<a href="{{ .cta.url }}" class="btn">{{ .cta.text }}</a>{{ end }}
   </div>
 </section>
