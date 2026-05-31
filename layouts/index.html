@@ -1,0 +1,12 @@
+{{ define "main" }}
+  <div class="content">
+    {{ .Content }}
+  </div>
+  {{ range .Params.sections }}
+    {{ if eq .template "hero" }}
+      {{ partial "blocks/hero.html" . }}
+    {{ else if eq .template "features" }}
+      {{ partial "blocks/features.html" . }}
+    {{ end }}
+  {{ end }}
+{{ end }}

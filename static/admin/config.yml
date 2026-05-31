@@ -1,6 +1,6 @@
 backend:
-  name: git-gateway
-  branch: main
+  name: proxy
+  proxy_url: http://localhost:8081/api/v1
 
 locale: 'es'
 
@@ -8,15 +8,34 @@ media_folder: 'static/img'
 public_folder: '/img'
 
 collections:
-  - name: 'pagines'
-    label: 'Pàgines'
-    label_singular: 'Pàgina'
-    folder: 'content'
+  - name: "pages"
+    label: "Pàgines"
+    label_singular: "Pàgina"
+    folder: "content"
     create: true
-    slug: '{{slug}}'
+    slug: "{{slug}}"
     fields:
       - {label: "Títol", name: "title", widget: "string"}
       - {label: "Data", name: "date", widget: "datetime"}
-      - {label: "Contingut", name: "body", widget: "markdown"}
-    editor:
-      preview: true
+      - label: "Seccions"
+        name: "sections"
+        widget: "list"
+        types:
+          - label: "Hero"
+            name: "hero"
+            widget: "object"
+            fields:
+              - {label: "Títol", name: "heading", widget: "string"}
+              - {label: "Subtítol", name: "subtext", widget: "text"}
+              - {label: "Imatge de fons", name: "image", widget: "image", required: false}
+          - label: "Característiques"
+            name: "features"
+            widget: "object"
+            fields:
+              - label: "Elements"
+                name: "items"
+                widget: "list"
+                fields:
+                  - {label: "Títol", name: "title", widget: "string"}
+                  - {label: "Descripció", name: "text", widget: "text"}
+                  - {label: "Icona", name: "icon", widget: "image", required: false}
