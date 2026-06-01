@@ -1,4 +1,11 @@
 <section class="hero snap-section" id="inici">
+  {{ if .video_file }}
+    <div class="video-bg">
+      <video autoplay muted loop playsinline>
+        <source src="{{ .video_file | relURL }}" type="video/mp4">
+      </video>
+    </div>
+  {{ end }}
   <div class="hero-content">
     <h1>{{ .heading }}</h1>
     {{ if .subtext }}<p>{{ .subtext }}</p>{{ end }}

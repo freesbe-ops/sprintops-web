@@ -28,6 +28,7 @@ collections:
               - {label: "Títol", name: "heading", widget: "string"}
               - {label: "Subtítol", name: "subtext", widget: "text"}
               - {label: "Imatge de fons", name: "image", widget: "image", required: false}
+              - {label: "Vídeo de fons (nom del fitxer)", name: "video_file", widget: "string", required: false, hint: "Ex: fons.mp4 a static/video/"}
               - label: "Botó CTA"
                 name: "cta"
                 widget: "object"
@@ -46,3 +47,14 @@ collections:
                   - {label: "Títol", name: "title", widget: "string"}
                   - {label: "Descripció", name: "text", widget: "text"}
                   - {label: "Icona", name: "icon", widget: "image", required: false}
+          - label: "Serveis"
+            name: "serveis"
+            widget: "object"
+            fields:
+              - {label: "Títol de la secció", name: "heading", widget: "string", default: "Serveis"}
+              - label: "Llista de serveis"
+                name: "items"
+                widget: "list"
+                fields:
+                  - {label: "Nom del servei", name: "title", widget: "string"}
+                  - {label: "Descripció", name: "text", widget: "text"}

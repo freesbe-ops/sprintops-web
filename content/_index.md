@@ -3,7 +3,11 @@ title: INICI
 date: 2026-05-31T08:49:45.444Z
 layout: home
 sections:
-  - template: hero
+  - type: hero
     heading: SPRINTOPS
     subtext: Consultoria ecommerce per resultats
+    video_file: fons.mp4
+    cta:
+      text: Contacta'ns
+      url: /contacte
 ---
