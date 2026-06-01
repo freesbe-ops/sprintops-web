@@ -5,7 +5,7 @@ layout: home
 sections:
   - type: hero
     heading: SPRINTOPS
-    subtext: Consultoria ecommerce per resultats
+    subtext: Consultoria digital i ecommerce
     video_file: fons.mp4
     cta:
       text: Contacta'ns
