@@ -270,3 +270,94 @@
   position: relative;
   z-index: 2;
 }
+
+/* FORÇAR VISIBILITAT DEL VÍDEO */
+.hero {
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh; /* Assegura alçada completa */
+  background: transparent !important; /* Sense fons sòlid */
+}
+
+.video-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  background: #000; /* Fons negre de fallback mentre es carrega el vídeo (opcional) */
+}
+
+.video-bg video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  background: transparent !important;
+}
+/* ========== BOTONS UNIFICATS (SPRINTOPS) ========== */
+/* Tots els botons: quadrats, sense arrodonir, padding generós, Helvetica Light */
+.btn,
+a.btn,
+button,
+input[type="submit"],
+input[type="button"] {
+  display: inline-block;
+  background: transparent;              /* sense farciment */
+  color: #ffffff;                       /* text blanc */
+  border: 1px solid #ffffff;            /* vora blanca d'1px */
+  padding: 14px 32px;                   /* espai generós (més gran que el text) */
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 300;                     /* Helvetica Light */
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 0;                     /* completament quadrat, sense arrodoniments */
+  transition: all 0.2s ease;
+}
+
+/* Hover: fons blanc, text negre */
+.btn:hover,
+a.btn:hover,
+button:hover,
+input[type="submit"]:hover,
+input[type="button"]:hover {
+  background: #ffffff;
+  color: #000000;
+  border-color: #ffffff;
+}
+/* ========== BOTÓ TRANSPARENT (FORÇAT) ========== */
+/* Assegurem que tots els botons siguin transparents, vora blanca 1px, text blanc */
+.btn,
+a.btn,
+button,
+input[type="submit"],
+input[type="button"] {
+  background: transparent !important;
+  color: #ffffff !important;
+  border: 1px solid #ffffff !important;
+  padding: 14px 32px !important;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
+  font-weight: 300 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+  border-radius: 0 !important;
+  transition: all 0.2s ease !important;
+}
+
+.btn:hover,
+a.btn:hover,
+button:hover,
+input[type="submit"]:hover,
+input[type="button"]:hover {
+  background: #ffffff !important;
+  color: #000000 !important;
+  border-color: #ffffff !important;
+}
