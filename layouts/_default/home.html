@@ -28,6 +28,12 @@
       {{ partial "blocks/features.html" . }}
     {{ else if eq .type "serveis" }}
       {{ partial "blocks/serveis.html" . }}
+    {{ else if eq .type "com-funciona" }}
+      {{ partial "blocks/com-funciona.html" . }}
+    {{ else if eq .type "creixem-junts" }}
+      {{ partial "blocks/creixem-junts.html" . }}
+    {{ else if eq .type "qui-som" }}
+      {{ partial "blocks/qui-som.html" . }}
     {{ end }}
   {{ end }}
 </body>

@@ -1,0 +1,27 @@
+<section class="qui-som snap-section" id="qui-som">
+  <div class="container">
+    <h2>{{ .heading }}</h2>
+    <div class="profile-card">
+      {{ if .image }}
+        <div class="profile-image">
+          <img src="{{ .image | relURL }}" alt="{{ .name }}">
+        </div>
+      {{ end }}
+      <div class="profile-info">
+        <h3>{{ .name }}</h3>
+        {{ if .role }}<p class="role">{{ .role }}</p>{{ end }}
+        {{ if .bio }}
+          <div class="bio">
+            {{ .bio | markdownify }}
+          </div>
+        {{ end }}
+        {{ if .location }}
+          <p class="location">
+            <span>{{ .location.town }}</span>
+            {{ if .location.extra }}<br><small>{{ .location.extra }}</small>{{ end }}
+          </p>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+</section>

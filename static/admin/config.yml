@@ -58,3 +58,44 @@ collections:
                 fields:
                   - {label: "Nom del servei", name: "title", widget: "string"}
                   - {label: "Descripció", name: "text", widget: "text"}
+          - label: "Com funciona"
+            name: "com-funciona"
+            widget: "object"
+            fields:
+              - {label: "Títol de la secció", name: "heading", widget: "string", default: "Com funciona"}
+              - label: "Passos"
+                name: "steps"
+                widget: "list"
+                fields:
+                  - {label: "Icona (emoji o text curt)", name: "icon", widget: "string", required: false}
+                  - {label: "Títol del pas", name: "title", widget: "string"}
+                  - {label: "Descripció", name: "text", widget: "text"}
+          - label: "Creixem junts"
+            name: "creixem-junts"
+            widget: "object"
+            fields:
+              - {label: "Títol de la secció", name: "heading", widget: "string", default: "Creixem junts"}
+              - {label: "Text destacat", name: "highlight", widget: "text", hint: "Frase potent que es vegui gran"}
+              - {label: "Cos explicatiu", name: "body", widget: "markdown"}
+              - label: "Botó"
+                name: "cta"
+                widget: "object"
+                required: false
+                fields:
+                  - {label: "Text del botó", name: "text", widget: "string"}
+                  - {label: "Enllaç", name: "url", widget: "string"}
+          - label: "Qui hi ha darrere"
+            name: "qui-som"
+            widget: "object"
+            fields:
+              - {label: "Títol de la secció", name: "heading", widget: "string", default: "Qui hi ha darrere"}
+              - {label: "Imatge de perfil", name: "image", widget: "image", required: false}
+              - {label: "Nom", name: "name", widget: "string", hint: "Oriol Martínez"}
+              - {label: "Càrrec", name: "role", widget: "string", hint: "Fundador de SprintOps"}
+              - {label: "Text personal", name: "bio", widget: "markdown"}
+              - label: "Localització"
+                name: "location"
+                widget: "object"
+                fields:
+                  - {label: "Població", name: "town", widget: "string", default: "Maçanet de la Selva, Girona"}
+                  - {label: "Text addicional", name: "extra", widget: "string", required: false, hint: "Per ex: 'Treballant amb negocis de tot Catalunya'"}

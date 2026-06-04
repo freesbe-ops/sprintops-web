@@ -1,0 +1,16 @@
+<section class="creixem-junts snap-section" id="creixem-junts">
+  <div class="container">
+    <h2>{{ .heading }}</h2>
+    {{ if .highlight }}
+      <p class="highlight">{{ .highlight }}</p>
+    {{ end }}
+    {{ if .body }}
+      <div class="body-text">
+        {{ .body | markdownify }}
+      </div>
+    {{ end }}
+    {{ if .cta }}
+      <a href="{{ .cta.url }}" class="btn">{{ .cta.text }}</a>
+    {{ end }}
+  </div>
+</section>

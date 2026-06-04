@@ -1,0 +1,14 @@
+<section class="com-funciona snap-section" id="com-funciona">
+  <div class="container">
+    <h2>{{ .heading }}</h2>
+    <div class="steps-grid">
+      {{ range .steps }}
+        <div class="step">
+          {{ if .icon }}<div class="step-icon">{{ .icon }}</div>{{ end }}
+          <h3>{{ .title }}</h3>
+          <p>{{ .text }}</p>
+        </div>
+      {{ end }}
+    </div>
+  </div>
+</section>

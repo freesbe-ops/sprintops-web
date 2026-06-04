@@ -361,3 +361,126 @@ input[type="button"]:hover {
   color: #000000 !important;
   border-color: #ffffff !important;
 }
+/* ========== COM FUNCIONA ========== */
+.com-funciona {
+  background: #000;
+  color: #fff;
+  padding: 4rem 8vw;
+}
+
+.com-funciona h2 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: #FF6600;
+}
+
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+}
+
+.step {
+  border: 1px solid #333;
+  padding: 2rem 1.5rem;
+  transition: border-color 0.2s;
+}
+
+.step:hover {
+  border-color: #FF6600;
+}
+
+.step-icon {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.step h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.3rem;
+}
+
+.step p {
+  color: #ccc;
+}
+
+/* ========== CREIXEM JUNTS ========== */
+.creixem-junts {
+  background: #000;
+  color: #fff;
+  padding: 4rem 8vw;
+  text-align: center;
+}
+
+.creixem-junts h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  color: #FF6600;
+}
+
+.creixem-junts .highlight {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  line-height: 1.3;
+}
+
+.creixem-junts .body-text {
+  max-width: 700px;
+  margin: 0 auto 2rem;
+  color: #ccc;
+  line-height: 1.6;
+}
+
+/* ========== QUI HI HA DARRERE ========== */
+.qui-som {
+  background: #000;
+  color: #fff;
+  padding: 4rem 8vw;
+}
+
+.qui-som h2 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: #FF6600;
+  text-align: center;
+}
+
+.profile-card {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-image img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #FF6600;
+}
+
+.profile-info h3 {
+  font-size: 1.8rem;
+  margin-bottom: 0.3rem;
+}
+
+.profile-info .role {
+  color: #FF6600;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.bio {
+  max-width: 500px;
+  color: #ccc;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.location {
+  font-size: 0.9rem;
+  color: #aaa;
+}
