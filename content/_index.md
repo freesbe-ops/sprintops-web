@@ -9,7 +9,7 @@ sections:
     video_file: fons.mp4
     cta:
       text: Contacta'ns
-      url: /contacte
+      url: "#contacte"
   - type: serveis
     heading: Serveis
     items:
