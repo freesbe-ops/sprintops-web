@@ -1,0 +1,101 @@
+backend:
+  name: proxy
+  proxy_url: http://localhost:8081/api/v1
+
+locale: 'es'
+
+media_folder: 'static/img'
+public_folder: '/img'
+
+collections:
+  - name: "pages"
+    label: "Pàgines"
+    label_singular: "Pàgina"
+    folder: "content"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Títol", name: "title", widget: "string"}
+      - {label: "Data", name: "date", widget: "datetime"}
+      - label: "Seccions"
+        name: "sections"
+        widget: "list"
+        types:
+          - label: "Hero"
+            name: "hero"
+            widget: "object"
+            fields:
+              - {label: "Títol", name: "heading", widget: "string"}
+              - {label: "Subtítol", name: "subtext", widget: "text"}
+              - {label: "Imatge de fons", name: "image", widget: "image", required: false}
+              - {label: "Vídeo de fons (nom del fitxer)", name: "video_file", widget: "string", required: false, hint: "Ex: fons.mp4 a static/video/"}
+              - label: "Botó CTA"
+                name: "cta"
+                widget: "object"
+                required: false
+                fields:
+                  - {label: "Text del botó", name: "text", widget: "string", default: "Contacta'ns"}
+                  - {label: "Enllaç", name: "url", widget: "string", default: "/contacte"}
+          - label: "Característiques"
+            name: "features"
+            widget: "object"
+            fields:
+              - label: "Elements"
+                name: "items"
+                widget: "list"
+                fields:
+                  - {label: "Títol", name: "title", widget: "string"}
+                  - {label: "Descripció", name: "text", widget: "text"}
+                  - {label: "Icona", name: "icon", widget: "image", required: false}
+          - label: "Serveis"
+            name: "serveis"
+            widget: "object"
+            fields:
+              - {label: "Títol de la secció", name: "heading", widget: "string", default: "Serveis"}
+              - label: "Llista de serveis"
+                name: "items"
+                widget: "list"
+                fields:
+                  - {label: "Nom del servei", name: "title", widget: "string"}
+                  - {label: "Descripció", name: "text", widget: "text"}
+          - label: "Com funciona"
+            name: "com-funciona"
+            widget: "object"
+            fields:
+              - {label: "Títol de la secció", name: "heading", widget: "string", default: "Com funciona"}
+              - label: "Passos"
+                name: "steps"
+                widget: "list"
+                fields:
+                  - {label: "Icona (emoji o text curt)", name: "icon", widget: "string", required: false}
+                  - {label: "Títol del pas", name: "title", widget: "string"}
+                  - {label: "Descripció", name: "text", widget: "text"}
+          - label: "Creixem junts"
+            name: "creixem-junts"
+            widget: "object"
+            fields:
+              - {label: "Títol de la secció", name: "heading", widget: "string", default: "Creixem junts"}
+              - {label: "Text destacat", name: "highlight", widget: "text", hint: "Frase potent que es vegui gran"}
+              - {label: "Cos explicatiu", name: "body", widget: "markdown"}
+              - label: "Botó"
+                name: "cta"
+                widget: "object"
+                required: false
+                fields:
+                  - {label: "Text del botó", name: "text", widget: "string"}
+                  - {label: "Enllaç", name: "url", widget: "string"}
+          - label: "Qui hi ha darrere"
+            name: "qui-som"
+            widget: "object"
+            fields:
+              - {label: "Títol de la secció", name: "heading", widget: "string", default: "Qui hi ha darrere"}
+              - {label: "Imatge de perfil", name: "image", widget: "image", required: false}
+              - {label: "Nom", name: "name", widget: "string", hint: "Oriol Martínez"}
+              - {label: "Càrrec", name: "role", widget: "string", hint: "Fundador de SprintOps"}
+              - {label: "Text personal", name: "bio", widget: "markdown"}
+              - label: "Localització"
+                name: "location"
+                widget: "object"
+                fields:
+                  - {label: "Població", name: "town", widget: "string", default: "Maçanet de la Selva, Girona"}
+                  - {label: "Text addicional", name: "extra", widget: "string", required: false, hint: "Per ex: 'Treballant amb negocis de tot Catalunya'"}

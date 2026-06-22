@@ -1,0 +1,486 @@
+/* ========== HEADER FIXE, A LA PART ESQUERRA, SENSE FONS ========== */
+.site-header {
+  position: fixed;
+  top: 40px;        /* distancia des de dalt – ajusta si ho vols més avall o més amunt */
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: transparent;
+  padding: 0;
+  border: none;
+}
+
+.nav {
+  padding-left: 8vw;   /* marge generós a l’esquerra */
+  padding-right: 8vw;
+}
+
+.nav-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  list-style: none;
+  gap: 2.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-list a {
+  color: #ffffff;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 1rem;
+  text-decoration: none;
+  position: relative;
+  transition: color 0.2s;
+}
+
+.nav-list a:hover,
+.nav-list a.active {
+  color: #FF6600;      /* taronja */
+}
+
+/* Subratllat animat opcional */
+.nav-list a::after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 1px;
+  bottom: -2px;
+  left: 0;
+  background-color: #FF6600;
+  transition: width 0.2s;
+}
+
+.nav-list a:hover::after {
+  width: 100%;
+}
+
+/* Compensació perquè l’scroll no tapi el contingut */
+.snap-section {
+  scroll-margin-top: 60px; /* ajusta segons l’alçada real del header */
+}
+/* ========== RECUPERAR TÍTOL CENTRAT I GRAN ========== */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 100vh;       /* Ocupa tota l’altura de la pantalla */
+  padding: 2rem;
+  padding-top: 100px;
+  margin-top: 0;           /* Evita que el header el desplaci */
+}
+
+.hero-content h1 {
+  font-size: clamp 9rem;         /* Mida grossa (ajusta si vols: 3rem, 4rem, 5rem) */
+  font-weight: 900;
+  line-weigth: 1.1;
+  margin-bottom: 1.5rem;
+  color: #ffffff;          /* o el color que tenies abans */
+}
+
+.hero-content p {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+/* Opcional: si el teu botó CTA també ha canviat */
+.btn {
+  display: inline-block;
+  background-color: #FF6600;
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.2s;
+}
+
+.btn:hover {
+  background-color: #e05a00;
+}
+/* FORÇA TEMPORALMENT */
+.hero-content h1 {
+  font-size: 8rem !important;
+  font-weight: 900 !important;
+}
+/* ========== RESPONSIVE PER A MÒBIL ========== */
+@media (max-width: 768px) {
+  /* Header més amunt i espaiat reduït */
+  .site-header {
+    top: 20px;  /* en mòbil, gairebé a dalt */
+  }
+
+  .nav {
+    padding-left: 5vw;  /* menys marge lateral */
+    padding-right: 5vw;
+  }
+
+  .nav-list {
+    gap: 1rem;          /* separat entre enllaços */
+    flex-wrap: wrap;    /* si no caben, baixen a la línia següent */
+  }
+
+  .nav-list a {
+    font-size: 0.85rem; /* lletra una mica més petita */
+  }
+
+  /* Hero: més compacte */
+  .hero {
+    padding-top: 80px;   /* compensa que el header és més amunt */
+    min-height: 90vh;    /* una mica menys d’alt */
+  }
+
+  .hero-content h1 {
+    font-size: clamp(2.8rem, 12vw, 4rem) !important;  /* màxim 4rem en mòbil */
+  }
+
+  .hero-content p {
+    font-size: 1.2rem;
+    max-width: 95%;
+  }
+
+  .btn {
+    font-size: 1rem;
+    padding: 0.7rem 1.5rem;
+  }
+}
+
+/* ========== RESPONSIVE PER A MÒBIL ========== */
+@media (max-width: 768px) {
+  /* Header una mica més amunt */
+  .site-header {
+    top: 20px;
+  }
+
+  .nav {
+    padding-left: 4vw;
+    padding-right: 0;          /* per permetre scroll sense marge dret extra */
+  }
+
+  /* Menú horitzontal amb scroll lateral */
+  .nav-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;         /* evita que baixin */
+    overflow-x: auto;          /* scroll horitzontal */
+    gap: 1.8rem;
+    padding-right: 8vw;        /* espai al final per no quedar tallat */
+    padding-bottom: 0.5rem;    /* petit marge per no tocar el scroll */
+    -webkit-overflow-scrolling: touch; /* scroll suau a iOS */
+  }
+
+  /* Opcional: amagar la barra de scroll en alguns navegadors (només estètic) */
+  .nav-list::-webkit-scrollbar {
+    display: none;
+  }
+  .nav-list {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .nav-list a {
+    font-size: 0.9rem;
+    white-space: nowrap;       /* evita que el text es trenqui */
+  }
+
+  /* Hero: títol més gran que abans però sense exagerar */
+  .hero {
+    padding-top: 80px;
+    min-height: 90vh;
+  }
+
+  .hero-content h1 {
+    font-size: clamp(3.2rem, 14vw, 5.5rem) !important;
+  }
+
+  .hero-content p {
+    font-size: 1.3rem;
+    max-width: 90%;
+  }
+
+  .btn {
+    font-size: 1rem;
+    padding: 0.7rem 1.5rem;
+  }
+}
+
+/* Per pantalles molt petites (menys de 500px) mantenim horitzontal però reduïm una mica el text */
+@media (max-width: 500px) {
+  .nav-list {
+    gap: 1.2rem;
+  }
+  .nav-list a {
+    font-size: 0.8rem;
+  }
+  .hero-content h1 {
+    font-size: clamp(2.8rem, 12vw, 4.5rem) !important;
+  }
+  .hero-content p {
+    font-size: 1.1rem;
+  }
+}
+/* ========== VÍDEO DE FONS ========== */
+.video-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.video-bg video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+
+/* VIDEO DE FONS VISIBLE */
+.hero {
+  background: transparent !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.video-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.video-bg video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+/* FORÇAR VISIBILITAT DEL VÍDEO */
+.hero {
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh; /* Assegura alçada completa */
+  background: transparent !important; /* Sense fons sòlid */
+}
+
+.video-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  background: #000; /* Fons negre de fallback mentre es carrega el vídeo (opcional) */
+}
+
+.video-bg video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  background: transparent !important;
+}
+/* ========== BOTONS UNIFICATS (SPRINTOPS) ========== */
+/* Tots els botons: quadrats, sense arrodonir, padding generós, Helvetica Light */
+.btn,
+a.btn,
+button,
+input[type="submit"],
+input[type="button"] {
+  display: inline-block;
+  background: transparent;              /* sense farciment */
+  color: #ffffff;                       /* text blanc */
+  border: 1px solid #ffffff;            /* vora blanca d'1px */
+  padding: 14px 32px;                   /* espai generós (més gran que el text) */
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 300;                     /* Helvetica Light */
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 0;                     /* completament quadrat, sense arrodoniments */
+  transition: all 0.2s ease;
+}
+
+/* Hover: fons blanc, text negre */
+.btn:hover,
+a.btn:hover,
+button:hover,
+input[type="submit"]:hover,
+input[type="button"]:hover {
+  background: #ffffff;
+  color: #000000;
+  border-color: #ffffff;
+}
+/* ========== BOTÓ TRANSPARENT (FORÇAT) ========== */
+/* Assegurem que tots els botons siguin transparents, vora blanca 1px, text blanc */
+.btn,
+a.btn,
+button,
+input[type="submit"],
+input[type="button"] {
+  background: transparent !important;
+  color: #ffffff !important;
+  border: 1px solid #ffffff !important;
+  padding: 14px 32px !important;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
+  font-weight: 300 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+  border-radius: 0 !important;
+  transition: all 0.2s ease !important;
+}
+
+.btn:hover,
+a.btn:hover,
+button:hover,
+input[type="submit"]:hover,
+input[type="button"]:hover {
+  background: #ffffff !important;
+  color: #000000 !important;
+  border-color: #ffffff !important;
+}
+/* ========== COM FUNCIONA ========== */
+.com-funciona {
+  background: #000;
+  color: #fff;
+  padding: 4rem 8vw;
+}
+
+.com-funciona h2 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: #FF6600;
+}
+
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+}
+
+.step {
+  border: 1px solid #333;
+  padding: 2rem 1.5rem;
+  transition: border-color 0.2s;
+}
+
+.step:hover {
+  border-color: #FF6600;
+}
+
+.step-icon {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.step h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.3rem;
+}
+
+.step p {
+  color: #ccc;
+}
+
+/* ========== CREIXEM JUNTS ========== */
+.creixem-junts {
+  background: #000;
+  color: #fff;
+  padding: 4rem 8vw;
+  text-align: center;
+}
+
+.creixem-junts h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  color: #FF6600;
+}
+
+.creixem-junts .highlight {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  line-height: 1.3;
+}
+
+.creixem-junts .body-text {
+  max-width: 700px;
+  margin: 0 auto 2rem;
+  color: #ccc;
+  line-height: 1.6;
+}
+
+/* ========== QUI HI HA DARRERE ========== */
+.qui-som {
+  background: #000;
+  color: #fff;
+  padding: 4rem 8vw;
+}
+
+.qui-som h2 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: #FF6600;
+  text-align: center;
+}
+
+.profile-card {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-image img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #FF6600;
+}
+
+.profile-info h3 {
+  font-size: 1.8rem;
+  margin-bottom: 0.3rem;
+}
+
+.profile-info .role {
+  color: #FF6600;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.bio {
+  max-width: 500px;
+  color: #ccc;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.location {
+  font-size: 0.9rem;
+  color: #aaa;
+}
