@@ -1,7 +1,6 @@
 baseURL = "https://sprintops.es/"
-theme = "mainroad"
-locale = "ca"
 title = "SprintOps"
+locale = "ca"
 
 [params]
   description = "Consultoria d'ecommerce basada en percentatge sobre vendes"

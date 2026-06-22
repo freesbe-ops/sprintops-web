@@ -59,4 +59,10 @@ sections:
     location:
       town: Maçanet de la Selva, Girona
       extra: Treballant amb negocis de tot Catalunya
+  - type: contacte
+    heading: Contacte
+    subtext: Explica'ns el teu projecte i en parlem sense compromís.
 ---
+  - type: contacte
+    heading: Contacte
+    subtext: Explica'ns el teu projecte i en parlem sense compromís.
