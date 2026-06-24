@@ -34,6 +34,8 @@
       {{ partial "blocks/creixem-junts.html" . }}
     {{ else if eq .type "qui-som" }}
       {{ partial "blocks/qui-som.html" . }}
+    {{ else if eq .type "contacte" }}
+      {{ partial "blocks/contacte.html" . }}
     {{ end }}
   {{ end }}
 </body>

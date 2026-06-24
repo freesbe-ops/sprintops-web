@@ -58,12 +58,7 @@ sections:
       inicials. M'agrada parlar clar i anar per feina.
     location:
       town: Maçanet de la Selva, Girona
-      extra: Treballant amb negocis de tot Catalunya
   - type: contacte
-    heading: Contacte
-    subtext: Explica'ns el teu projecte i en parlem sense compromís.
+    heading: CONTACTE
+    subtext: EXPLICA'NS EL TEU PROJECTE I EN PARLEM SENSE COMPROMÍS
 ---
-  - type: contacte
-    heading: Contacte
-    subtext: Explica'ns el teu projecte i en parlem sense compromís.
-

@@ -484,3 +484,102 @@ input[type="button"]:hover {
   font-size: 0.9rem;
   color: #aaa;
 }
+/* ========== CONTACTE ========== */
+.contacte {
+  background: #000;
+  color: #fff;
+  padding: 4rem 8vw;
+  text-align: center;
+}
+
+.contacte .container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.contacte h2 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  color: #FF6600; /* Taronja SprintOps */
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.whatsapp-link {
+  display: block;
+  font-size: 2rem;
+  font-weight: 300; /* Thin/Light */
+  color: #ffffff;
+  text-decoration: none;
+  margin-bottom: 1.5rem;
+  transition: color 0.2s;
+}
+
+.whatsapp-link:hover {
+  color: #FF6600;
+}
+
+.contacte .subtext {
+  font-size: 0.9rem;
+  font-weight: 300; /* Thin */
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 3rem;
+  color: #ccc;
+}
+
+.contact-form {
+  text-alig
+n: left;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+/* Eliminem les etiquetes <label> antigues si en quedaven */
+.form-group label {
+  display: none;
+}
+
+/* Estil dels quadrats de text */
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 1rem 0; /* Espai només vertical, sense padding lateral per a la línia */
+  background: transparent;
+  border: none; /* Sense vora per defecte */
+  border-bottom: 1px solid #ffffff; /* Línia blanca inferior */
+  color: #ffffff;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 300; /* Thin */
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: border-color 0.2s;
+  border-radius: 0; /* quadrat, sense arrodoniments */
+}
+
+/* Placeholder amb opacitat */
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #ffffff;
+  opacity: 0.7;
+  font-weight: 300;
+}
+
+/* Efecte focus: línia taronja */
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-bottom-color: #FF6600;
+}
+
+/* El botó d'enviar ja hereta l'estil global de .btn (transparent, vora blanca) */
+/* Assegurem que estigui centrat */
+.contact-form .btn {
+  display: block;
+  width: 100%;
+  margin-top: 2rem;
+  text-align: center;
+}
