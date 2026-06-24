@@ -36,7 +36,9 @@
       {{ partial "blocks/qui-som.html" . }}
     {{ else if eq .type "contacte" }}
       {{ partial "blocks/contacte.html" . }}
-    {{ end }}
+    {{ else if eq .type "servei" }}
+      {{ partial "blocks/servei.html" . }}    
+{{ end }}
   {{ end }}
 </body>
 </html>

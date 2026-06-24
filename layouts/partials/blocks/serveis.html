@@ -1,13 +1,11 @@
-<section class="services snap-section" id="serveis">
-  <div class="container">
-    <h2>{{ .heading }}</h2>
-    <div class="services-grid">
-      {{ range .items }}
-        <div class="service-item">
-          <h3>{{ .title }}</h3>
-          <p>{{ .text }}</p>
-        </div>
-      {{ end }}
-    </div>
+<section class="serveis snap-section" id="serveis">
+  <div class="carousel-wrapper">
+    {{ range .items }}
+      <div class="carousel-slide">
+        <h2 class="servei-title">{{ .title }}</h2>
+        {{ if .subtitle }}<h3 class="servei-subtitle">{{ .subtitle }}</h3>{{ end }}
+        <p class="servei-text">{{ .text }}</p>
+      </div>
+    {{ end }}
   </div>
 </section>

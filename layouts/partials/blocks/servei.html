@@ -1,0 +1,7 @@
+<section class="servei snap-section" id="{{ .title | urlize }}">
+  <div class="container">
+    <h2 class="servei-title">{{ .title }}</h2>
+    {{ if .subtitle }}<h3 class="servei-subtitle">{{ .subtitle }}</h3>{{ end }}
+    <p class="servei-text">{{ .text }}</p>
+  </div>
+</section>

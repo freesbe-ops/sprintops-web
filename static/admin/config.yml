@@ -57,6 +57,7 @@ collections:
                 widget: "list"
                 fields:
                   - {label: "Nom del servei", name: "title", widget: "string"}
+                  - {label: "Subtítol", name: "subtitle", widget: "string", required: false}
                   - {label: "Descripció", name: "text", widget: "text"}
           - label: "Com funciona"
             name: "com-funciona"

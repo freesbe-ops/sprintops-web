@@ -13,14 +13,18 @@ sections:
   - type: serveis
     heading: Serveis
     items:
-      - title: Auditoria completa
-        text: Analitzem el teu negoci digital i detectem oportunitats de millora.
-      - title: Optimització de la conversió
-        text: Convertim més visitants en clients amb CRO i testing.
-      - title: Estratègia digital
-        text: SEO, SEM i email marketing orientats a resultats mesurables.
-      - title: Automatització de processos
-        text: Reduïm costos i temps amb eines intel·ligents.
+      - title: AUDITORIA COMPLETA
+        subtitle: EL TEU NEGOCI DIGITAL
+        text: Analitzem el teu negoci digital i detectem oportunitats de millora reals. Cada projecte comença amb una auditoria profunda per marcar el camí correcte.
+      - title: OPTIMITZACIÓ DE LA CONVERSIÓ
+        subtitle: CONVERTIR MÉS VISITANTS EN CLIENTS
+        text: Amb CRO i testing millorem cada pas del funnel. Convertim clics en clients sense augmentar el trànsit.
+      - title: ESTRATÈGIA DIGITAL
+        subtitle: SEO, SEM I EMAIL MARKETING
+        text: Dissenyem estratègies de captació i fidelització orientades a resultats mesurables. Ens importa el ROI, no les vanitats.
+      - title: AUTOMATITZACIÓ DE PROCESSOS
+        subtitle: REDUEIX COSTOS I TEMPS
+        text: Implementem eines intel·ligents perquè el teu negoci funcioni sol. Automatitzem tasques repetitives i t'ajudem a escalar.
   - type: com-funciona
     heading: Com funciona
     steps:
