@@ -66,3 +66,4 @@ sections:
   - type: contacte
     heading: Contacte
     subtext: Explica'ns el teu projecte i en parlem sense compromís.
+
