@@ -1,0 +1,11 @@
+{
+  "title": "SprintOps — Consultoria d’ecommerce",
+  "description": "Optimitzem el teu ecommerce amb un model de risc compartit. Cobrem un % de les teves vendes.",
+  "language": "ca",
+  "icons": {
+    "icon": "/favicon.ico"
+  },
+  "openGraph": {
+    "image": "https://example.com/og-image.jpg"
+  }
+}
