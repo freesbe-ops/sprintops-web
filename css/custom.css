@@ -1,451 +1,419 @@
-/* ========== HEADER FIXE, A LA PART ESQUERRA, SENSE FONS ========== */
-.site-header {
-  position: fixed;
-  top: 40px;        /* distancia des de dalt – ajusta si ho vols més avall o més amunt */
-  left: 0;
-  width: 100%;
-  z-index: 1000;
-  background: transparent;
-  padding: 0;
-  border: none;
-}
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
-.nav {
-  padding-left: 8vw;   /* marge generós a l’esquerra */
-  padding-right: 8vw;
+html {
+  scroll-behavior: smooth;
+  scrollbar-width: none;
 }
+html::-webkit-scrollbar { display: none; }
 
-.nav-list {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  list-style: none;
-  gap: 2.5rem;
-  margin: 0;
-  padding: 0;
-}
-
-.nav-list a {
+body {
+  background: #0a0a0a;
   color: #ffffff;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  font-size: 1rem;
-  text-decoration: none;
-  position: relative;
-  transition: color 0.2s;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  min-height: 100vh;
 }
 
-.nav-list a:hover,
-.nav-list a.active {
-  color: #FF6600;      /* taronja */
+/* ── Animations ── */
+@keyframes ticker {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes countUp {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+@keyframes scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
 }
 
-/* Subratllat animat opcional */
-.nav-list a::after {
-  content: '';
-  position: absolute;
-  width: 0%;
-  height: 1px;
-  bottom: -2px;
-  left: 0;
-  background-color: #FF6600;
-  transition: width 0.2s;
-}
+.fade-up { animation: fadeUp 0.7s ease forwards; }
+.d100 { animation-delay: 0.1s; opacity: 0; }
+.d200 { animation-delay: 0.2s; opacity: 0; }
+.d350 { animation-delay: 0.35s; opacity: 0; }
+.d500 { animation-delay: 0.5s; opacity: 0; }
+.d650 { animation-delay: 0.65s; opacity: 0; }
 
-.nav-list a:hover::after {
-  width: 100%;
-}
-
-/* Compensació perquè l’scroll no tapi el contingut */
-.snap-section {
-  scroll-margin-top: 60px; /* ajusta segons l’alçada real del header */
-}
-/* ========== RECUPERAR TÍTOL CENTRAT I GRAN ========== */
-.hero {
+/* ── Top Nav ── */
+.top-nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 200;
   display: flex;
   align-items: center;
-  justify-content: center;
-  text-align: center;
-  min-height: 100vh;       /* Ocupa tota l’altura de la pantalla */
-  padding: 2rem;
-  padding-top: 100px;
-  margin-top: 0;           /* Evita que el header el desplaci */
+  justify-content: space-between;
+  padding: 0 clamp(20px, 4vw, 60px);
+  height: 64px;
+  background: rgba(10, 10, 10, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
-
-.hero-content h1 {
-  font-size: clamp 9rem;         /* Mida grossa (ajusta si vols: 3rem, 4rem, 5rem) */
-  font-weight: 900;
-  line-weigth: 1.1;
-  margin-bottom: 1.5rem;
-  color: #ffffff;          /* o el color que tenies abans */
-}
-
-.hero-content p {
-  font-size: 1.5rem;
-  margin-bottom: 2rem;
-}
-
-/* Opcional: si el teu botó CTA també ha canviat */
-.btn {
-  display: inline-block;
-  background-color: #FF6600;
+.top-nav-logo {
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
   color: #fff;
-  padding: 0.75rem 1.5rem;
-  border-radius: 4px;
   text-decoration: none;
-  font-weight: bold;
-  transition: background 0.2s;
 }
-
-.btn:hover {
-  background-color: #e05a00;
+.top-nav-links {
+  display: flex;
+  gap: 32px;
+  list-style: none;
 }
-/* FORÇA TEMPORALMENT */
-.hero-content h1 {
-  font-size: 8rem !important;
-  font-weight: 900 !important;
+.top-nav-links a {
+  font-size: 13px;
+  color: rgba(255,255,255,0.5);
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: color 0.2s;
 }
-/* ========== RESPONSIVE PER A MÒBIL ========== */
-@media (max-width: 768px) {
-  /* Header més amunt i espaiat reduït */
-  .site-header {
-    top: 20px;  /* en mòbil, gairebé a dalt */
-  }
-
-  .nav {
-    padding-left: 5vw;  /* menys marge lateral */
-    padding-right: 5vw;
-  }
-
-  .nav-list {
-    gap: 1rem;          /* separat entre enllaços */
-    flex-wrap: wrap;    /* si no caben, baixen a la línia següent */
-  }
-
-  .nav-list a {
-    font-size: 0.85rem; /* lletra una mica més petita */
-  }
-
-  /* Hero: més compacte */
-  .hero {
-    padding-top: 80px;   /* compensa que el header és més amunt */
-    min-height: 90vh;    /* una mica menys d’alt */
-  }
-
-  .hero-content h1 {
-    font-size: clamp(2.8rem, 12vw, 4rem) !important;  /* màxim 4rem en mòbil */
-  }
-
-  .hero-content p {
-    font-size: 1.2rem;
-    max-width: 95%;
-  }
-
-  .btn {
-    font-size: 1rem;
-    padding: 0.7rem 1.5rem;
-  }
+.top-nav-links a:hover { color: #fff; }
+.nav-cta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 20px;
+  background: #FF6600;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.2s;
+  font-family: inherit;
 }
+.nav-cta:hover { opacity: 0.88; }
 
-/* ========== RESPONSIVE PER A MÒBIL ========== */
-@media (max-width: 768px) {
-  /* Header una mica més amunt */
-  .site-header {
-    top: 20px;
-  }
-
-  .nav {
-    padding-left: 4vw;
-    padding-right: 0;          /* per permetre scroll sense marge dret extra */
-  }
-
-  /* Menú horitzontal amb scroll lateral */
-  .nav-list {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;         /* evita que baixin */
-    overflow-x: auto;          /* scroll horitzontal */
-    gap: 1.8rem;
-    padding-right: 8vw;        /* espai al final per no quedar tallat */
-    padding-bottom: 0.5rem;    /* petit marge per no tocar el scroll */
-    -webkit-overflow-scrolling: touch; /* scroll suau a iOS */
-  }
-
-  /* Opcional: amagar la barra de scroll en alguns navegadors (només estètic) */
-  .nav-list::-webkit-scrollbar {
-    display: none;
-  }
-  .nav-list {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
-
-  .nav-list a {
-    font-size: 0.9rem;
-    white-space: nowrap;       /* evita que el text es trenqui */
-  }
-
-  /* Hero: títol més gran que abans però sense exagerar */
-  .hero {
-    padding-top: 80px;
-    min-height: 90vh;
-  }
-
-  .hero-content h1 {
-    font-size: clamp(3.2rem, 14vw, 5.5rem) !important;
-  }
-
-  .hero-content p {
-    font-size: 1.3rem;
-    max-width: 90%;
-  }
-
-  .btn {
-    font-size: 1rem;
-    padding: 0.7rem 1.5rem;
-  }
-}
-
-/* Per pantalles molt petites (menys de 500px) mantenim horitzontal però reduïm una mica el text */
-@media (max-width: 500px) {
-  .nav-list {
-    gap: 1.2rem;
-  }
-  .nav-list a {
-    font-size: 0.8rem;
-  }
-  .hero-content h1 {
-    font-size: clamp(2.8rem, 12vw, 4.5rem) !important;
-  }
-  .hero-content p {
-    font-size: 1.1rem;
-  }
-}
-/* ========== VÍDEO DE FONS ========== */
-.video-bg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  z-index: -1;
-}
-
-.video-bg video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
+/* ── Hero ── */
 .hero {
   position: relative;
-  overflow: hidden;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background: #0a0a0a;
 }
-
-/* VIDEO DE FONS VISIBLE */
-.hero {
-  background: transparent !important;
-  position: relative;
-  overflow: hidden;
-}
-
-.video-bg {
+.hero::before {
+  content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
+  inset: 0;
+  background: rgba(10, 10, 10, 0.25);
+  z-index: 1;
 }
-
-.video-bg video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.hero-content {
+.hero .section-wrap {
   position: relative;
   z-index: 2;
+  padding: 140px 0 120px;
 }
-
-/* FORÇAR VISIBILITAT DEL VÍDEO */
-.hero {
-  position: relative;
-  overflow: hidden;
-  min-height: 100vh; /* Assegura alçada completa */
-  background: transparent !important; /* Sense fons sòlid */
+.hero-content {
+  max-width: 760px;
 }
-
+.hero-content h1 {
+  font-size: clamp(3.5rem, 7vw, 6rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.02;
+  margin-bottom: 1.25rem;
+  color: #fff;
+}
+.hero-content p {
+  font-size: 1.1rem;
+  color: rgba(255,255,255,0.8);
+  line-height: 1.75;
+  max-width: 620px;
+  margin-bottom: 1.75rem;
+}
 .video-bg {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+  overflow: hidden;
   z-index: 0;
-  background: #000; /* Fons negre de fallback mentre es carrega el vídeo (opcional) */
 }
-
 .video-bg video {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+/* ── Buttons ── */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 32px;
+  background: #FF6600;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  font-family: inherit;
+  transition: opacity 0.2s;
+}
+.btn-primary:hover { opacity: 0.88; }
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 15px 32px;
+  background: transparent;
+  color: rgba(255,255,255,0.7);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border: 1px solid rgba(255,255,255,0.2);
+  cursor: pointer;
+  text-decoration: none;
+  font-family: inherit;
+  transition: border-color 0.2s, color 0.2s;
+}
+.btn-ghost:hover { border-color: rgba(255,255,255,0.6); color: #fff; }
+
+.btn-outline-sq {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 28px;
+  background: transparent;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border: 1px solid rgba(255,255,255,0.25);
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+.btn-outline-sq:hover {
+  background: #fff;
+  color: #000;
+  border-color: #fff;
+}
+
+/* ── Ticker ── */
+.ticker-wrap {
+  overflow: hidden;
+  border-top: 1px solid rgba(255,255,255,0.07);
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  padding: 14px 0;
+  background: #0a0a0a;
+}
+.ticker-inner {
+  display: flex;
+  gap: 0;
+  width: max-content;
+  animation: ticker 28s linear infinite;
+}
+.ticker-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 0 20px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+  white-space: nowrap;
+}
+.ticker-dot {
+  width: 4px; height: 4px;
+  border-radius: 50%;
+  background: #FF6600;
+  flex-shrink: 0;
+}
+
+/* ── Section structure ── */
+.section-wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 4vw, 60px);
+}
+.section-num {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #FF6600;
+  margin-bottom: 20px;
   display: block;
 }
-
-.hero-content {
-  position: relative;
-  z-index: 2;
-  background: transparent !important;
-}
-/* ========== BOTONS UNIFICATS (SPRINTOPS) ========== */
-/* Tots els botons: quadrats, sense arrodonir, padding generós, Helvetica Light */
-.btn,
-a.btn,
-button,
-input[type="submit"],
-input[type="button"] {
-  display: inline-block;
-  background: transparent;              /* sense farciment */
-  color: #ffffff;                       /* text blanc */
-  border: 1px solid #ffffff;            /* vora blanca d'1px */
-  padding: 14px 32px;                   /* espai generós (més gran que el text) */
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-weight: 300;                     /* Helvetica Light */
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  text-decoration: none;
-  cursor: pointer;
-  border-radius: 0;                     /* completament quadrat, sense arrodoniments */
-  transition: all 0.2s ease;
-}
-
-/* Hover: fons blanc, text negre */
-.btn:hover,
-a.btn:hover,
-button:hover,
-input[type="submit"]:hover,
-input[type="button"]:hover {
-  background: #ffffff;
-  color: #000000;
-  border-color: #ffffff;
-}
-/* ========== BOTÓ TRANSPARENT (FORÇAT) ========== */
-/* Assegurem que tots els botons siguin transparents, vora blanca 1px, text blanc */
-.btn,
-a.btn,
-button,
-input[type="submit"],
-input[type="button"] {
-  background: transparent !important;
-  color: #ffffff !important;
-  border: 1px solid #ffffff !important;
-  padding: 14px 32px !important;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
-  font-weight: 300 !important;
-  text-transform: uppercase !important;
-  letter-spacing: 0.5px !important;
-  border-radius: 0 !important;
-  transition: all 0.2s ease !important;
-}
-
-.btn:hover,
-a.btn:hover,
-button:hover,
-input[type="submit"]:hover,
-input[type="button"]:hover {
-  background: #ffffff !important;
-  color: #000000 !important;
-  border-color: #ffffff !important;
-}
-/* ========== COM FUNCIONA ========== */
-.com-funciona {
-  background: #000;
+.section-headline {
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.02;
   color: #fff;
-  padding: 4rem 8vw;
-}
-
-.com-funciona h2 {
-  font-size: 2.5rem;
-  margin-bottom: 2rem;
-  color: #FF6600;
-}
-
-.steps-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 2rem;
-}
-
-.step {
-  border: 1px solid #333;
-  padding: 2rem 1.5rem;
-  transition: border-color 0.2s;
-}
-
-.step:hover {
-  border-color: #FF6600;
-}
-
-.step-icon {
-  font-size: 2rem;
   margin-bottom: 1rem;
 }
+.section-sub {
+  font-size: 16px;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.75;
+  max-width: 620px;
+  margin-bottom: 1.75rem;
+}
 
-.step h3 {
-  margin-bottom: 0.5rem;
+/* ── Social proof badge ── */
+.proof-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 16px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  font-size: 12px;
+  color: rgba(255,255,255,0.6);
+  letter-spacing: 0.04em;
+}
+.proof-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: #22c55e;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* ── Cards ── */
+.service-card-dark {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  padding: 32px 28px;
+  transition: border-color 0.25s, background 0.25s;
+  cursor: pointer;
+}
+.service-card-dark:hover {
+  border-color: rgba(255,102,0,0.4);
+  background: rgba(255,102,0,0.04);
+}
+
+.step-line {
+  display: flex;
+  align-items: flex-start;
+  gap: 28px;
+  padding: 32px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.step-line:last-child { border-bottom: none; }
+.step-number {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #FF6600;
+  flex-shrink: 0;
+}
+.step-line h3 {
   font-size: 1.3rem;
-}
-
-.step p {
-  color: #ccc;
-}
-
-/* ========== CREIXEM JUNTS ========== */
-.creixem-junts {
-  background: #000;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
   color: #fff;
-  padding: 4rem 8vw;
-  text-align: center;
+}
+.step-line p {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.7);
 }
 
-.creixem-junts h2 {
-  font-size: 2.5rem;
+/* ── Forms ── */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
   margin-bottom: 1.5rem;
-  color: #FF6600;
 }
-
-.creixem-junts .highlight {
-  font-size: 1.8rem;
-  font-weight: 600;
-  margin-bottom: 2rem;
-  line-height: 1.3;
+.field-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
 }
-
-.creixem-junts .body-text {
-  max-width: 700px;
-  margin: 0 auto 2rem;
-  color: #ccc;
-  line-height: 1.6;
-}
-
-/* ========== QUI HI HA DARRERE ========== */
-.qui-som {
-  background: #000;
+.field-input {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(255,255,255,0.15);
   color: #fff;
-  padding: 4rem 8vw;
+  font-size: 15px;
+  font-family: inherit;
+  padding: 10px 0;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.field-input::placeholder { color: rgba(255,255,255,0.2); }
+.field-input:focus { border-bottom-color: #FF6600; }
+textarea.field-input { resize: none; }
+
+/* ── Carousel ── */
+.h-scroll {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 4px;
+}
+.h-scroll::-webkit-scrollbar { display: none; }
+.snap-start { scroll-snap-align: start; flex-shrink: 0; }
+
+/* ── WhatsApp float ── */
+.wa-float {
+  position: fixed;
+  bottom: 90px;
+  right: 20px;
+  z-index: 150;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #25D366;
+  color: #fff;
+  padding: 12px 16px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  box-shadow: 0 8px 32px rgba(37,211,102,0.3);
+  transition: opacity 0.2s;
+  font-family: inherit;
+}
+.wa-float:hover { opacity: 0.9; }
+.wa-urgency {
+  position: absolute;
+  top: -8px; right: -6px;
+  background: #FF6600;
+  color: #fff;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  padding: 3px 7px;
+  white-space: nowrap;
 }
 
-.qui-som h2 {
-  font-size: 2.5rem;
-  margin-bottom: 2rem;
-  color: #FF6600;
-  text-align: center;
-}
-
+/* ── Profile card ── */
 .profile-card {
   display: flex;
   flex-wrap: wrap;
@@ -453,200 +421,44 @@ input[type="button"]:hover {
   align-items: center;
   justify-content: center;
 }
-
 .profile-image img {
-  width: 200px;
-  height: 200px;
+  width: 220px;
+  height: 220px;
   object-fit: cover;
-  border-radius: 50%;
-  border: 2px solid #FF6600;
+  border-radius: 24px;
+  border: 1px solid rgba(255,255,255,0.12);
 }
-
 .profile-info h3 {
-  font-size: 1.8rem;
-  margin-bottom: 0.3rem;
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
 }
-
 .profile-info .role {
   color: #FF6600;
   font-weight: 500;
   margin-bottom: 1rem;
 }
-
-.bio {
-  max-width: 500px;
-  color: #ccc;
-  line-height: 1.6;
-  margin-bottom: 1rem;
+.profile-info .bio,
+.profile-info .location {
+  color: rgba(255,255,255,0.77);
+  line-height: 1.7;
 }
 
-.location {
-  font-size: 0.9rem;
-  color: #aaa;
-}
-/* ========== CONTACTE ========== */
-.contacte {
-  background: #000;
-  color: #fff;
-  padding: 4rem 8vw;
-  text-align: center;
-}
-
-.contacte .container {
-  max-width: 600px;
-  margin: 0 auto;
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .top-nav-links { display: none; }
+  .hero { min-height: 85vh; }
+  .hero .section-wrap { padding-top: 100px; }
+  .hero-content h1 { font-size: clamp(2.8rem, 12vw, 4rem); }
+  .hero-content p { font-size: 1rem; max-width: 95%; }
+  .h-scroll { padding-bottom: 8px; }
+  .service-card-dark { min-width: 280px; }
+  .step-line { flex-direction: column; gap: 16px; }
+  .profile-card { flex-direction: column; }
 }
 
-.contacte h2 {
-  font-size: 2.5rem;
-  margin-bottom: 0.5rem;
-  color: #FF6600; /* Taronja SprintOps */
-  font-weight: 700;
-  letter-spacing: 2px;
-}
-
-.whatsapp-link {
-  display: block;
-  font-size: 2rem;
-  font-weight: 300; /* Thin/Light */
-  color: #ffffff;
-  text-decoration: none;
-  margin-bottom: 1.5rem;
-  transition: color 0.2s;
-}
-
-.whatsapp-link:hover {
-  color: #FF6600;
-}
-
-.contacte .subtext {
-  font-size: 0.9rem;
-  font-weight: 300; /* Thin */
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-bottom: 3rem;
-  color: #ccc;
-}
-
-.contact-form {
-  text-alig
-n: left;
-}
-
-.form-group {
-  margin-bottom: 1.5rem;
-}
-
-/* Eliminem les etiquetes <label> antigues si en quedaven */
-.form-group label {
-  display: none;
-}
-
-/* Estil dels quadrats de text */
-.form-group input,
-.form-group textarea {
-  width: 100%;
-  padding: 1rem 0; /* Espai només vertical, sense padding lateral per a la línia */
-  background: transparent;
-  border: none; /* Sense vora per defecte */
-  border-bottom: 1px solid #ffffff; /* Línia blanca inferior */
-  color: #ffffff;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 1rem;
-  font-weight: 300; /* Thin */
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  transition: border-color 0.2s;
-  border-radius: 0; /* quadrat, sense arrodoniments */
-}
-
-/* Placeholder amb opacitat */
-.form-group input::placeholder,
-.form-group textarea::placeholder {
-  color: #ffffff;
-  opacity: 0.7;
-  font-weight: 300;
-}
-
-/* Efecte focus: línia taronja */
-.form-group input:focus,
-.form-group textarea:focus {
-  outline: none;
-  border-bottom-color: #FF6600;
-}
-
-/* El botó d'enviar ja hereta l'estil global de .btn (transparent, vora blanca) */
-/* Assegurem que estigui centrat */
-.contact-form .btn {
-  display: block;
-  width: 100%;
-  margin-top: 2rem;
-  text-align: center;
-}
-/* ========== SECCIÓ SERVEIS (SCROLL HORITZONTAL AMB SNAP) ========== */
-.serveis {
-  background: #000;
-  color: #fff;
-  min-height: 100vh; /* pantalla completa */
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-}
-
-.carousel-wrapper {
-  display: flex;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-  width: 100%;
-  height: 100%;
-}
-
-.carousel-slide {
-  flex: 0 0 100%; /* cada diapositiva ocupa exactament el 100% de l'amplada */
-  scroll-snap-align: center; /* ancoratge al centre */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 2rem 8vw;
-  box-sizing: border-box;
-}
-
-/* Amagar la barra de scroll en navegadors compatibles (opcional, però estètic) */
-.carousel-wrapper::-webkit-scrollbar {
-  display: none;
-}
-.carousel-wrapper {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
-/* Estils del text (es mantenen igual) */
-.servei-title {
-  font-size: clamp(2.5rem, 8vw, 5rem);
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  color: #FF6600;
-  margin-bottom: 0.5rem;
-  line-height: 1.1;
-}
-
-.servei-subtitle {
-  font-size: clamp(1rem, 3vw, 1.5rem);
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  margin-bottom: 1.5rem;
-  color: #ffffff;
-}
-
-.servei-text {
-  font-size: 1.1rem;
-  font-weight: 300;
-  line-height: 1.6;
-  max-width: 600px;
-  color: #ccc;
+@media (max-width: 500px) {
+  .hero-content h1 { font-size: clamp(2.8rem, 12vw, 4.5rem); }
+  .section-headline { font-size: clamp(2rem, 10vw, 3rem); }
+  .top-nav { padding: 0 16px; }
+  .nav-cta { padding: 10px 18px; }
 }
