@@ -562,7 +562,7 @@ export default function App() {
             <div>
               <span className="section-num">06 — Comença</span>
               <h2 className="section-headline" style={{ marginBottom: 20 }}>
-                Explica&apos;ns el teu cas.<br />Potenciem les teves vendes.<br /><span style={{ color: '#FF6600' }}>Sense pressió.</span>
+                Explica&apos;ns el teu cas.<br /><span style={{ color: '#FF6600' }}>Potenciem les teves vendes.</span>
               </h2>
               <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.45)', lineHeight: 1.75, marginBottom: 44 }}>
                 Comparteix què passa amb el teu ecommerce: tràfic, conversió, operativa, marge o objectius. Si hi ha potencial, et proposem un pla clar per fer créixer les vendes.
