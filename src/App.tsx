@@ -510,7 +510,7 @@ export default function App() {
               <span className="section-num">05 — Qui soc</span>
               <h2 className="section-headline" style={{ marginBottom: 24 }}>
                 L&apos;Oriol està al darrera.<br />
-                Sóc aquí pels teus números.
+                <span style={{ color: '#FF6600' }}>Potenciem les teves vendes.</span>
               </h2>
               <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.55)', lineHeight: 1.8, marginBottom: 16 }}>
                 Més de 8 anys gestionant ecommerces de totes les mides ens han ensenyat una cosa: el problema mai és el producte, sinó l&apos;execució.
@@ -523,12 +523,6 @@ export default function App() {
               </p>
               <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.55)', lineHeight: 1.8, marginBottom: 16 }}>
                 Si ens truques, respondrem nosaltres. Sense assistents, sense passos intermedis.
-              </p>
-              <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.55)', lineHeight: 1.8, marginBottom: 16 }}>
-                Soc d&apos;aquí. Treballo per als teus números.
-              </p>
-              <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.55)', lineHeight: 1.8, marginBottom: 16 }}>
-                Soc de Maçanet de la Selva, Girona. Potser no és el que esperaves d&apos;un consultor d&apos;ecommerce — però és exactament el que et farà confiar. Sense oficines de Barcelona. Sense overhead d&apos;agència. Sense compte executiu que et faci de pont.
               </p>
               <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.55)', lineHeight: 1.8, marginBottom: 16 }}>
                 8 anys gestionant ecommerces de totes les mides. He après que el problema mai és el producte: és l&apos;execució. I l&apos;execució és el que faig cada dia.
