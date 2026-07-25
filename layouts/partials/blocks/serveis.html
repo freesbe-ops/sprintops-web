@@ -1,11 +1,15 @@
 <section class="serveis snap-section" id="serveis">
-  <div class="carousel-wrapper">
-    {{ range .items }}
-      <div class="carousel-slide">
-        <h2 class="servei-title">{{ .title }}</h2>
-        {{ if .subtitle }}<h3 class="servei-subtitle">{{ .subtitle }}</h3>{{ end }}
-        <p class="servei-text">{{ .text }}</p>
-      </div>
-    {{ end }}
+  <div class="section-wrap">
+    <span class="section-num">02</span>
+    <h2 class="section-headline">{{ .heading }}</h2>
+    <div class="h-scroll">
+      {{ range .items }}
+        <article class="service-card-dark snap-start">
+          <h3 class="section-headline" style="font-size: 1.75rem; margin-bottom: 0.75rem;">{{ .title }}</h3>
+          {{ if .subtitle }}<p class="section-sub" style="margin-bottom: 1rem; color: rgba(255,255,255,0.65);">{{ .subtitle }}</p>{{ end }}
+          <p style="color: rgba(255,255,255,0.75); line-height: 1.8;">{{ .text }}</p>
+        </article>
+      {{ end }}
+    </div>
   </div>
 </section>

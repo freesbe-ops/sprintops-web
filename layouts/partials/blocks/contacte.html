@@ -1,23 +1,23 @@
 <section class="contacte snap-section" id="contacte">
-  <div class="container">
-    <h2>{{ .heading }}</h2>
-    <a href="https://wa.me/34644318333" class="whatsapp-link" target="_blank">644 31 83 33</a>
-    {{ if .subtext }}<p class="subtext">{{ .subtext }}</p>{{ end }}
-    
+  <div class="section-wrap">
+    <span class="section-num">06</span>
+    <h2 class="section-headline">{{ .heading }}</h2>
+    <a href="https://wa.me/34644318333" class="btn-ghost" target="_blank" rel="noreferrer noopener">644 31 83 33</a>
+    {{ if .subtext }}<p class="section-sub">{{ .subtext }}</p>{{ end }}
     <form action="https://script.google.com/macros/s/AKfycbwDgvYhfB-6gHz7FpqsdxwUAV2KollOpWroXCCMQi-YQqCtuAJkhyGm9agINKROHJ5FbA/exec" method="POST" class="contact-form">
-      <div class="form-group">
-        <input type="text" id="nom" name="nombre" placeholder="NOM" required>
+      <div class="field">
+        <input type="text" id="nom" name="nombre" class="field-input" placeholder="NOM" required>
       </div>
-      <div class="form-group">
-        <input type="email" id="email" name="email" placeholder="CORREU ELECTRÒNIC" required>
+      <div class="field">
+        <input type="email" id="email" name="email" class="field-input" placeholder="CORREU ELECTRÒNIC" required>
       </div>
-      <div class="form-group">
-        <input type="tel" id="telefon" name="telefono" placeholder="TELÈFON">
+      <div class="field">
+        <input type="tel" id="telefon" name="telefono" class="field-input" placeholder="TELÈFON">
       </div>
-      <div class="form-group">
-        <textarea id="missatge" name="mensaje" rows="1" placeholder="MISSATGE" required></textarea>
+      <div class="field">
+        <textarea id="missatge" name="mensaje" class="field-input" rows="4" placeholder="MISSATGE" required></textarea>
       </div>
-      <button type="submit" class="btn">ENVIAR</button>
+      <button type="submit" class="btn-primary">ENVIAR</button>
     </form>
   </div>
 </section>

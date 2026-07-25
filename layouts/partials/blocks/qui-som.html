@@ -1,7 +1,8 @@
 <section class="qui-som snap-section" id="qui-som">
-  <div class="container">
-    <h2>{{ .heading }}</h2>
-    <div class="profile-card">
+  <div class="section-wrap">
+    <span class="section-num">05</span>
+    <h2 class="section-headline">{{ .heading }}</h2>
+    <div class="service-card-dark profile-card">
       {{ if .image }}
         <div class="profile-image">
           <img src="{{ .image | relURL }}" alt="{{ .name }}">
