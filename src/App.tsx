@@ -29,6 +29,7 @@ const TICKER_ITEMS = [
 ]
 
 const HERO_VIDEO_URL = '/video.mp4'
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzRrSO93lV4deJT9kc2aatOwaQuCe86q-u3PxiDc1cm6dK69dIf25GvmwX0f-kCPURibg/exec'
 
 // ── Problems we solve ──────────────────────────────────────────────────────
 const PROBLEMS = [
@@ -162,6 +163,8 @@ export default function App() {
   const [active, setActive] = useState('hero')
   const [form, setForm] = useState({ nom: '', email: '', negoci: '', vendes: '' })
   const [sent, setSent] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [error, setError] = useState('')
 
   useEffect(() => {
     const ids = ['hero', 'serveis', 'proces', 'model', 'sobre', 'contacte']
@@ -174,6 +177,42 @@ export default function App() {
   }, [])
 
   const go = (id: string) => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    setError('')
+    setIsSubmitting(true)
+
+    try {
+      const params = new URLSearchParams({
+        nom: form.nom,
+        nombre: form.nom,
+        email: form.email,
+        negoci: form.negoci,
+        vendes: form.vendes,
+        telefono: '',
+        mensaje: `Botiga: ${form.negoci} | Facturació: ${form.vendes}`,
+      })
+
+      const response = await fetch(GOOGLE_SCRIPT_URL, {
+        method: 'POST',
+        body: params,
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
+        },
+      })
+
+      if (!response.ok) {
+        throw new Error('No s’ha pogut enviar el formulari')
+      }
+
+      setSent(true)
+    } catch {
+      setError('No s’ha pogut enviar el formulari. Torna-ho a provar o escriu-me per WhatsApp.')
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
 
   const navActive = (id: string) => {
     if (id === 'serveis') return active === 'serveis' || active === 'proces'
@@ -470,11 +509,26 @@ export default function App() {
             <div>
               <span className="section-num">05 — Qui soc</span>
               <h2 className="section-headline" style={{ marginBottom: 24 }}>
-                Soc d&apos;aquí.<br />
-                Treballo per als teus números.
+                L&apos;Oriol està al darrera.<br />
+                Sóc aquí pels teus números.
               </h2>
               <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.55)', lineHeight: 1.8, marginBottom: 16 }}>
-                Soc de Maçanet de la Selva, Girona. Potser no és el que esperaves d&apos;un consultor d&apos;ecommerce — però és exactament el que et farà confiar. Sense oficines de Barcelona. Sense overhead d&apos;agència. Sense compte ejecutivo que et fa de pont.
+                Més de 8 anys gestionant ecommerces de totes les mides ens han ensenyat una cosa: el problema mai és el producte, sinó l&apos;execució.
+              </p>
+              <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.55)', lineHeight: 1.8, marginBottom: 16 }}>
+                A SprintOps ens obsessiona convertir visites en vendes. Ho fem amb estratègia, dades i molta mà al foc. No som una agència tradicional, ni ho volem ser. Som un equip petit, àgil i directe, que s&apos;implica en cada projecte com si fos el nostre.
+              </p>
+              <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.55)', lineHeight: 1.8, marginBottom: 16 }}>
+                Treballem amb negocis d&apos;arreu, parlant en català o castellà, i sempre amb un objectiu clar: fer créixer els teus números.
+              </p>
+              <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.55)', lineHeight: 1.8, marginBottom: 16 }}>
+                Si ens truques, respondrem nosaltres. Sense assistents, sense passos intermedis.
+              </p>
+              <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.55)', lineHeight: 1.8, marginBottom: 16 }}>
+                Soc d&apos;aquí. Treballo per als teus números.
+              </p>
+              <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.55)', lineHeight: 1.8, marginBottom: 16 }}>
+                Soc de Maçanet de la Selva, Girona. Potser no és el que esperaves d&apos;un consultor d&apos;ecommerce — però és exactament el que et farà confiar. Sense oficines de Barcelona. Sense overhead d&apos;agència. Sense compte executiu que et faci de pont.
               </p>
               <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.55)', lineHeight: 1.8, marginBottom: 16 }}>
                 8 anys gestionant ecommerces de totes les mides. He après que el problema mai és el producte: és l&apos;execució. I l&apos;execució és el que faig cada dia.
@@ -514,10 +568,10 @@ export default function App() {
             <div>
               <span className="section-num">06 — Comença</span>
               <h2 className="section-headline" style={{ marginBottom: 20 }}>
-                1 hora.<br />Diagnosi real.<br /><span style={{ color: '#FF6600' }}>Sense cost.</span>
+                Explica&apos;ns el teu cas.<br />Potenciem les teves vendes.<br /><span style={{ color: '#FF6600' }}>Sense pressió.</span>
               </h2>
               <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.45)', lineHeight: 1.75, marginBottom: 44 }}>
-                Analitzem el teu ecommerce i et diem exactament on perds diners. Si no veiem potencial de millora, t&apos;ho diem sense més. Sense pressió, sense vendes agressives.
+                Comparteix què passa amb el teu ecommerce: tràfic, conversió, operativa, marge o objectius. Si hi ha potencial, et proposem un pla clar per fer créixer les vendes.
               </p>
 
               <a
@@ -549,25 +603,26 @@ export default function App() {
                   <div style={{ fontSize: 14, color: 'rgba(255,255,255,0.4)' }}>Et respondré jo personalment en menys de 24 hores. — Oriol</div>
                 </div>
               ) : (
-                <form onSubmit={e => { e.preventDefault(); setSent(true) }} style={{ display: 'flex', flexDirection: 'column', gap: 32 }}>
+                <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: 32 }}>
                   <div className="field">
                     <label className="field-label">Nom i cognom</label>
-                    <input className="field-input" type="text" placeholder="Martí Puig" value={form.nom} onChange={e => setForm(p => ({ ...p, nom: e.target.value }))} required />
+                    <input className="field-input" type="text" name="nom" placeholder="Martí Puig" value={form.nom} onChange={e => setForm(p => ({ ...p, nom: e.target.value }))} required />
                   </div>
                   <div className="field">
                     <label className="field-label">Correu electrònic</label>
-                    <input className="field-input" type="email" placeholder="hola@botiga.com" value={form.email} onChange={e => setForm(p => ({ ...p, email: e.target.value }))} required />
+                    <input className="field-input" type="email" name="email" placeholder="hola@botiga.com" value={form.email} onChange={e => setForm(p => ({ ...p, email: e.target.value }))} required />
                   </div>
                   <div className="field">
                     <label className="field-label">URL de la teva botiga</label>
-                    <input className="field-input" type="url" placeholder="https://labotiga.com" value={form.negoci} onChange={e => setForm(p => ({ ...p, negoci: e.target.value }))} required />
+                    <input className="field-input" type="url" name="negoci" placeholder="https://labotiga.com" value={form.negoci} onChange={e => setForm(p => ({ ...p, negoci: e.target.value }))} required />
                   </div>
                   <div className="field">
                     <label className="field-label">Facturació mensual aproximada</label>
-                    <input className="field-input" type="text" placeholder="ex. 5.000€/mes, tot just comencem..." value={form.vendes} onChange={e => setForm(p => ({ ...p, vendes: e.target.value }))} required />
+                    <input className="field-input" type="text" name="vendes" placeholder="ex. 5.000€/mes, tot just comencem..." value={form.vendes} onChange={e => setForm(p => ({ ...p, vendes: e.target.value }))} required />
                   </div>
-                  <button type="submit" className="btn-primary" style={{ alignSelf: 'flex-start' }}>
-                    Sol·licitar diagnosi {Ico.arrow}
+                  {error ? <div style={{ color: '#ff8a65', fontSize: 13 }}>{error}</div> : null}
+                  <button type="submit" className="btn-primary" style={{ alignSelf: 'flex-start' }} disabled={isSubmitting}>
+                    {isSubmitting ? 'Enviant…' : <>Explica&apos;ns el teu cas {Ico.arrow}</>}
                   </button>
                 </form>
               )}
