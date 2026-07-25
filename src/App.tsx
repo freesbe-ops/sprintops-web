@@ -608,11 +608,11 @@ export default function App() {
                   </div>
                   <div className="field">
                     <label className="field-label">URL de la teva botiga</label>
-                    <input className="field-input" type="url" name="negoci" placeholder="https://labotiga.com" value={form.negoci} onChange={e => setForm(p => ({ ...p, negoci: e.target.value }))} required />
+                    <input className="field-input" type="text" name="negoci" placeholder="labotiga.com o https://labotiga.com" value={form.negoci} onChange={e => setForm(p => ({ ...p, negoci: e.target.value }))} />
                   </div>
                   <div className="field">
-                    <label className="field-label">Facturació mensual aproximada</label>
-                    <input className="field-input" type="text" name="vendes" placeholder="ex. 5.000€/mes, tot just comencem..." value={form.vendes} onChange={e => setForm(p => ({ ...p, vendes: e.target.value }))} required />
+                    <label className="field-label">El teu cas</label>
+                    <input className="field-input" type="text" name="vendes" placeholder="Explica'ns què vols millorar o què et passa..." value={form.vendes} onChange={e => setForm(p => ({ ...p, vendes: e.target.value }))} required />
                   </div>
                   {error ? <div style={{ color: '#ff8a65', fontSize: 13 }}>{error}</div> : null}
                   <button type="submit" className="btn-primary" style={{ alignSelf: 'flex-start' }} disabled={isSubmitting}>
