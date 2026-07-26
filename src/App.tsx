@@ -235,7 +235,7 @@ export default function App() {
           ))}
         </ul>
         <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="nav-cta nav-cta-whatsapp">
-          {Ico.wa} Diagnosi gratuïta
+          {Ico.wa} PARLEM-NE
         </a>
       </header>
 
@@ -278,7 +278,7 @@ export default function App() {
             No som una agència. Som el teu soci de risc compartit. Si el teu ecommerce no creix, nosaltres no cobrem. Tan senzill com això.
           </p>
 
-          <div className="hero-button-group fade-up d500" style={{ display: 'flex', gap: 14, flexWrap: 'wrap', marginBottom: 72 }}>
+          <div className="hero-button-group fade-up d500" style={{ display: 'flex', gap: 14, flexWrap: 'wrap', marginBottom: 72, justifyContent: 'flex-start' }}>
             <button className="btn-primary" onClick={() => go('contacte')}>
               Diagnosi gratuïta — 1h {Ico.arrow}
             </button>
