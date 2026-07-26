@@ -278,15 +278,20 @@ export default function App() {
             No som una agència. Som el teu soci de risc compartit. Si el teu ecommerce no creix, nosaltres no cobrem. Tan senzill com això.
           </p>
 
-          <div className="hero-button-group fade-up d500" style={{ display: 'flex', gap: 14, flexWrap: 'wrap', marginBottom: 72, justifyContent: 'flex-start' }}>
-            <button className="btn-primary" onClick={() => go('contacte')}>
+          {/*
+            CORRECCIÓ: he canviat 'flex-start' per 'center' perquè en mòbil es centrin.
+            El CSS per a mòbil ja sobreescriu aquest estil amb flex-direction: column,
+            però l'alineació horitzontal es defineix amb justify-content.
+            Aquí el posem a 'center' perquè en desktop també estiguin centrats.
+          */}
+          <div className="hero-button-group fade-up d500" style={{ display: 'flex', gap: '14px', flexWrap: 'wrap', marginBottom: '72px', justifyContent: 'center' }}>
+            <button className="btn-primary" style={{ alignSelf: 'flex-start' }} onClick={() => go('contacte')}>
               Diagnosi gratuïta — 1h {Ico.arrow}
             </button>
-            <button className="btn-ghost" onClick={() => go('model')}>
+            <button className="btn-ghost" style={{ alignSelf: 'flex-start' }} onClick={() => go('model')}>
               Veure model de negoci
             </button>
           </div>
-
           {/* Stats — contextualitzats */}
           <div className="fade-up d650" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '24px 48px', paddingTop: 32, borderTop: '1px solid rgba(255,255,255,0.07)', maxWidth: 800 }}>
             {[
@@ -524,12 +529,6 @@ export default function App() {
               </p>
               <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.55)', lineHeight: 1.8, marginBottom: 16 }}>
                 Si ens truques, respondrem nosaltres. Sense assistents, sense passos intermedis.
-              </p>
-              <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.55)', lineHeight: 1.8, marginBottom: 16 }}>
-                8 anys gestionant ecommerces de totes les mides. He après que el problema mai és el producte: és l&apos;execució. I l&apos;execució és el que faig cada dia.
-              </p>
-              <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.55)', lineHeight: 1.8, marginBottom: 32 }}>
-                Pots trucar-me en català o en castellà. Respondré jo, no un assistent.
               </p>
 
               <div style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 13, color: 'rgba(255,255,255,0.3)', marginBottom: 36 }}>
