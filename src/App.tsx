@@ -261,7 +261,7 @@ export default function App() {
         <div className="section-wrap" style={{ position: 'relative', zIndex: 2 }}>
 
           {/* Badge */}
-          <div className="proof-badge fade-up d100" style={{ marginBottom: 40, display: 'inline-flex' }}>
+          <div className="proof-badge fade-up d100" style={{ marginTop: 32, marginBottom: 40, display: 'inline-flex' }}>
             <span className="proof-dot" />
             <span>Model de comissió — no pagues fins que venguis</span>
           </div>
