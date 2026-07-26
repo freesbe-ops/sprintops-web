@@ -30,6 +30,7 @@ const TICKER_ITEMS = [
 
 const HERO_VIDEO_URL = '/video.mp4'
 const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzRrSO93lV4deJT9kc2aatOwaQuCe86q-u3PxiDc1cm6dK69dIf25GvmwX0f-kCPURibg/exec'
+const WHATSAPP_URL = 'https://wa.me/34644318333'
 
 // ── Problems we solve ──────────────────────────────────────────────────────
 const PROBLEMS = [
@@ -133,7 +134,7 @@ const NAV_ITEMS = [
   { id: 'serveis',  label: 'serveis',  icon: Ico.grid },
   { id: 'model',    label: 'model',    icon: Ico.layers },
   { id: 'sobre',    label: 'sobre',    icon: Ico.user },
-  { id: 'contacte', label: 'contacte', icon: Ico.mail },
+  { id: 'contacte', label: 'contacte', icon: Ico.wa },
 ]
 
 // ── Counter ────────────────────────────────────────────────────────────────
@@ -233,7 +234,7 @@ export default function App() {
             <li key={id}><a href="#" onClick={e => { e.preventDefault(); go(id) }}>{lbl}</a></li>
           ))}
         </ul>
-        <a href="https://wa.me/34644318333" className="nav-cta">
+        <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="nav-cta nav-cta-whatsapp">
           {Ico.wa} Diagnosi gratuïta
         </a>
       </header>
@@ -277,12 +278,12 @@ export default function App() {
             No som una agència. Som el teu soci de risc compartit. Si el teu ecommerce no creix, nosaltres no cobrem. Tan senzill com això.
           </p>
 
-          <div className="fade-up d500" style={{ display: 'flex', gap: 14, flexWrap: 'wrap', marginBottom: 72 }}>
+          <div className="hero-button-group fade-up d500" style={{ display: 'flex', gap: 14, flexWrap: 'wrap', marginBottom: 72 }}>
             <button className="btn-primary" onClick={() => go('contacte')}>
               Diagnosi gratuïta — 1h {Ico.arrow}
             </button>
             <button className="btn-ghost" onClick={() => go('model')}>
-              Veure model de comissió
+              Veure model de negoci
             </button>
           </div>
 
@@ -333,7 +334,7 @@ export default function App() {
             </p>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 1 }}>
+          <div className="problems-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 1 }}>
             {PROBLEMS.map((p, i) => (
               <div
                 key={i}
@@ -369,7 +370,7 @@ export default function App() {
 
           <div>
             {STEPS.map((step, i) => (
-              <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: 32, padding: '36px 0', borderBottom: i < STEPS.length - 1 ? '1px solid rgba(255,255,255,0.06)' : 'none' }}>
+              <div key={i} className="step-line" style={{ display: 'flex', alignItems: 'flex-start', gap: 32, padding: '36px 0', borderBottom: i < STEPS.length - 1 ? '1px solid rgba(255,255,255,0.06)' : 'none' }}>
                 <div style={{ fontSize: 'clamp(2.2rem, 4.5vw, 3.5rem)', fontWeight: 900, color: '#FF6600', letterSpacing: '-0.04em', lineHeight: 1, minWidth: 70, flexShrink: 0 }}>{step.num}</div>
                 <div style={{ flexGrow: 1 }}>
                   <h3 style={{ fontSize: 18, fontWeight: 700, marginBottom: 12, letterSpacing: '-0.01em' }}>{step.title}</h3>
@@ -388,7 +389,7 @@ export default function App() {
       {/* ── MODEL COMISSIÓ ── */}
       <section id="model" style={{ padding: 'clamp(80px, 10vw, 120px) 0', background: '#0d0d0d' }}>
         <div className="section-wrap">
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'clamp(40px, 8vw, 100px)', alignItems: 'start' }}>
+          <div className="model-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'clamp(40px, 8vw, 100px)', alignItems: 'start' }}>
             <div>
               <span className="section-num">03 — Model de preus</span>
               <h2 className="section-headline" style={{ marginBottom: 20 }}>
@@ -536,7 +537,7 @@ export default function App() {
                 <span>Maçanet de la Selva, Girona — treballem per a tota Espanya</span>
               </div>
 
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 24, paddingTop: 32, borderTop: '1px solid rgba(255,255,255,0.07)' }}>
+              <div className="about-stats" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 24, paddingTop: 32, borderTop: '1px solid rgba(255,255,255,0.07)' }}>
                 {[
                   { n: <Counter end={47} suffix="+" />, l: 'Projectes' },
                   { n: '€2,4M', l: 'Revenue generat' },
@@ -569,7 +570,9 @@ export default function App() {
               </p>
 
               <a
-                href="https://wa.me/34644318333"
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 style={{ display: 'inline-flex', alignItems: 'center', gap: 14, padding: '18px 24px', border: '1px solid rgba(255,255,255,0.1)', color: '#fff', textDecoration: 'none', transition: 'border-color 0.2s', background: 'rgba(255,255,255,0.03)' }}
                 onMouseEnter={e => (e.currentTarget.style.borderColor = '#25D366')}
                 onMouseLeave={e => (e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)')}
@@ -631,25 +634,35 @@ export default function App() {
         <span style={{ fontSize: 12, color: 'rgba(255,255,255,0.2)' }}>Som de Maçanet de la Selva · Treballem per a tota Espanya · © 2025</span>
       </footer>
 
-      {/* ── WhatsApp flotant ── */}
-      <a href="https://wa.me/34644318333" className="wa-float">
-        <span className="wa-urgency">2 places lliures</span>
-        {Ico.wa}
-        <span>WhatsApp</span>
-      </a>
-
       {/* ── BOTTOM NAV ── */}
       <nav className="bottom-nav">
-        {NAV_ITEMS.map(item => (
-          <button
-            key={item.id}
-            className={`nav-btn${navActive(item.id) ? ' active' : ''}`}
-            onClick={() => go(item.id)}
-          >
-            {item.icon}
-            <span>{item.label}</span>
-          </button>
-        ))}
+        {NAV_ITEMS.map(item => {
+          if (item.id === 'contacte') {
+            return (
+              <a
+                key={item.id}
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="nav-btn nav-btn-wa"
+              >
+                {item.icon}
+                <span>{item.label}</span>
+              </a>
+            )
+          }
+
+          return (
+            <button
+              key={item.id}
+              className={`nav-btn${navActive(item.id) ? ' active' : ''}`}
+              onClick={() => go(item.id)}
+            >
+              {item.icon}
+              <span>{item.label}</span>
+            </button>
+          )
+        })}
       </nav>
     </div>
   )

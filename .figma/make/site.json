@@ -7,5 +7,8 @@
   },
   "openGraph": {
     "image": "https://example.com/og-image.jpg"
+  },
+  "analytics": {
+    "googleAnalyticsId": "G-YDWJHRT07N"
   }
 }
