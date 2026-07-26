@@ -126,10 +126,10 @@ body {
 
 /* ── Buttons ── */
 .hero-button-group {
-  width: fit-content;
+  width: 100%;
   max-width: 100%;
   display: flex;
-  align-items: center;
+  align-items: stretch;
   gap: 14px;
   flex-wrap: wrap;
 }
@@ -137,6 +137,7 @@ body {
 .hero-button-group > button {
   flex: 0 1 auto;
   max-width: 100%;
+  min-width: 0;
 }
 
 .btn-primary {
@@ -509,6 +510,7 @@ textarea.field-input { resize: none; }
     flex-direction: column;
     align-items: stretch;
     gap: 12px;
+    justify-content: center;
   }
   .hero-button-group > button {
     width: 100%;
@@ -516,6 +518,8 @@ textarea.field-input { resize: none; }
     flex: 1 1 100%;
     justify-content: center;
     text-align: center;
+    display: flex;
+    align-items: center;
   }
   .service-card-dark, .plan-card, .field, .about-card, .why-grid > div, .about-stats > div {
     padding: 22px 18px;
