@@ -270,7 +270,7 @@ export default function App() {
           <h1 className="fade-up d200" style={{ fontSize: 'clamp(2.8rem, 8vw, 7rem)', fontWeight: 900, letterSpacing: '-0.04em', lineHeight: 0.97, marginBottom: 32, maxWidth: 900 }}>
             El teu ecommerce—<br />
             <span style={{ color: '#FF6600' }}>risc zero.</span><br />
-            Cobrem un&nbsp;%<br />
+            Cobrem un %<br />
             de les teves vendes.
           </h1>
 
@@ -278,17 +278,11 @@ export default function App() {
             No som una agència. Som el teu soci de risc compartit. Si el teu ecommerce no creix, nosaltres no cobrem. Tan senzill com això.
           </p>
 
-          {/*
-            CORRECCIÓ: he canviat 'flex-start' per 'center' perquè en mòbil es centrin.
-            El CSS per a mòbil ja sobreescriu aquest estil amb flex-direction: column,
-            però l'alineació horitzontal es defineix amb justify-content.
-            Aquí el posem a 'center' perquè en desktop també estiguin centrats.
-          */}
-          <div className="hero-button-group fade-up d500" style={{ display: 'flex', gap: '14px', flexWrap: 'wrap', marginBottom: '72px', justifyContent: 'center' }}>
-            <button className="btn-primary" style={{ alignSelf: 'flex-start' }} onClick={() => go('contacte')}>
+          <div className="hero-button-group fade-up d500" style={{ display: 'flex', gap: '14px', flexWrap: 'wrap', marginBottom: '72px', justifyContent: 'center', alignItems: 'center' }}>
+            <button className="btn-primary" style={{ alignSelf: 'center' }} onClick={() => go('contacte')}>
               Diagnosi gratuïta — 1h {Ico.arrow}
             </button>
-            <button className="btn-ghost" style={{ alignSelf: 'flex-start' }} onClick={() => go('model')}>
+            <button className="btn-ghost" style={{ alignSelf: 'center' }} onClick={() => go('model')}>
               Veure model de negoci
             </button>
           </div>
