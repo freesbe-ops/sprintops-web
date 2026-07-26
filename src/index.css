@@ -227,7 +227,7 @@ body {
 
 .hero-button-group > button,
 .hero-button-group > a {
-  flex: 0 1 auto;
+  flex: 1 1 0%;
   max-width: 100%;
   min-width: 0;
 }
@@ -669,7 +669,7 @@ textarea.field-input {
     width: 100%;
     max-width: 100%;
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     justify-content: center;
     gap: 12px;
     padding: 0;
@@ -677,7 +677,7 @@ textarea.field-input {
 
   .hero-button-group > button,
   .hero-button-group > a {
-    flex: 0 1 auto;
+    flex: 1 0 0%;
     min-width: 0;
     padding: 14px 18px !important;
     font-size: 13px !important;
@@ -719,7 +719,7 @@ textarea.field-input {
 
   .hero-button-group > button,
   .hero-button-group > a {
-    width: auto !important;
+    width: 100% !important;
     max-width: 100%;
   }
 

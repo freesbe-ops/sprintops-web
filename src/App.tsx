@@ -279,10 +279,10 @@ export default function App() {
           </p>
 
           <div className="hero-button-group fade-up d500" style={{ display: 'flex', gap: '14px', flexWrap: 'wrap', marginBottom: '72px', justifyContent: 'center', alignItems: 'center' }}>
-            <button className="btn-primary" style={{ alignSelf: 'center' }} onClick={() => go('contacte')}>
-              Diagnosi gratuïta — 1h {Ico.arrow}
+            <button className="btn-primary" style={{ flex: '1 1 0%', minWidth: 0 }} onClick={() => go('contacte')}>
+              Explica'ns el teu cas {Ico.arrow}
             </button>
-            <button className="btn-ghost" style={{ alignSelf: 'center' }} onClick={() => go('model')}>
+            <button className="btn-ghost" style={{ flex: '1 1 0%', minWidth: 0 }} onClick={() => go('model')}>
               Veure model de negoci
             </button>
           </div>
