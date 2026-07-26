@@ -240,7 +240,7 @@ export default function App() {
       </header>
 
       {/* ── HERO ── */}
-      <section id="hero" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', paddingTop: 64, position: 'relative', overflow: 'hidden' }}>
+      <section id="hero" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', paddingTop: 64, paddingBottom: 160, position: 'relative', overflow: 'hidden' }}>
         {/* BG */}
         <div style={{ position: 'absolute', inset: 0, pointerEvents: 'none' }}>
           <video
