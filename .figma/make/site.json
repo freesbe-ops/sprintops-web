@@ -1,13 +1,19 @@
 {
-  "title": "SprintOps — Consultoria d’ecommerce",
-  "description": "Optimitzem el teu ecommerce amb un model de risc compartit. Cobrem un % de les teves vendes.",
+  "title": "SprintOps — Consultoria d'ecommerce que cobra per resultats",
+  "description": "Optimitzem el teu ecommerce amb un model de risc compartit. Cobrem un % de les teves vendes. Diagnosi gratuïta.",
   "language": "ca",
   "icons": {
-    "icon": "/favicon.ico"
+    "icon": "/SprintOps-favicon.png"
   },
   "openGraph": {
-    "image": "https://example.com/og-image.jpg"
+    "title": "SprintOps — Consultoria d'ecommerce",
+    "description": "Cobrem per resultats, no per hores. Diagnosi gratuïta per al teu ecommerce.",
+    "image": "/og-image.jpg"
   },
+  "twitter": {
+    "card": "summary_large_image"
+  },
+  "robots": "index, follow",
   "analytics": {
     "googleAnalyticsId": "G-YDWJHRT07N"
   }

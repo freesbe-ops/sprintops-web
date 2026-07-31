@@ -513,16 +513,13 @@ export default function App() {
                 <span style={{ color: '#FF6600' }}>Potenciem les teves vendes.</span>
               </h2>
               <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.55)', lineHeight: 1.8, marginBottom: 16 }}>
-                Més de 8 anys gestionant ecommerces de totes les mides ens han ensenyat una cosa: el problema mai és el producte, sinó l&apos;execució.
+                Més de 8 anys gestionant ecommerces de totes les mides ens han ensenyat una cosa: el problema mai és el producte, sinó l'execució.
               </p>
               <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.55)', lineHeight: 1.8, marginBottom: 16 }}>
-                A SprintOps ens obsessiona convertir visites en vendes. Ho fem amb estratègia, dades i molta mà al foc. No som una agència tradicional, ni ho volem ser. Som un equip petit, àgil i directe, que s&apos;implica en cada projecte com si fos el nostre.
+                A SprintOps treballem amb molt pocs clients — perquè cada un mereix la nostra atenció plena. Som un equip petit, àgil i directe, que s'implica en cada projecte com si fos el nostre. Cobrim un % de les vendes que generem junts: el nostre èxit depèn del teu.
               </p>
               <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.55)', lineHeight: 1.8, marginBottom: 16 }}>
-                Treballem amb negocis d&apos;arreu, parlant en català o castellà, i sempre amb un objectiu clar: fer créixer els teus números.
-              </p>
-              <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.55)', lineHeight: 1.8, marginBottom: 16 }}>
-                Si ens truques, respondrem nosaltres. Sense assistents, sense passos intermedis.
+                Parlem en català o castellà, des de Maçanet fins a qualsevol racó d'Espanya. Si ens truques, respon l'Oriol. Sense assistents, sense passos intermedis.
               </p>
 
               <div style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 13, color: 'rgba(255,255,255,0.3)', marginBottom: 36 }}>
@@ -532,9 +529,9 @@ export default function App() {
 
               <div className="about-stats" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 24, paddingTop: 32, borderTop: '1px solid rgba(255,255,255,0.07)' }}>
                 {[
-                  { n: <Counter end={47} suffix="+" />, l: 'Projectes' },
-                  { n: '€2,4M', l: 'Revenue generat' },
-                  { n: <Counter end={94} suffix="%" />, l: 'Renovació' },
+                  { n: '3', l: 'Ecommerces actius' },
+                  { n: '18', l: 'Pàgines de generació de leads' },
+                  { n: '100%', l: 'Confiança' },
                 ].map(({ n, l }) => (
                   <div key={l}>
                     <div style={{ fontSize: 22, fontWeight: 900, color: '#FF6600', letterSpacing: '-0.02em' }}>{n}</div>
