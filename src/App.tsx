@@ -289,10 +289,10 @@ export default function App() {
           {/* Stats — contextualitzats */}
           <div className="fade-up d650" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '24px 48px', paddingTop: 32, borderTop: '1px solid rgba(255,255,255,0.07)', maxWidth: 800 }}>
             {[
-              { num: '2,4M€', label: 'en vendes gestionades per als nostres clients' },
-              { num: '47+', label: 'projectes completats des de Girona fins Múrcia' },
-              { num: '94%', label: 'de clients renoven — perquè veuen resultats' },
-              { num: '48h', label: 'és el temps màxim que tardem en posar-nos en marxa' },
+              { num: <Counter end={300} suffix="%" />, label: 'ROAS de mitjana per als nostres clients' },
+              { num: <Counter end={2} suffix="+" />, label: 'obrim botigues que funcionen' },
+              { num: <Counter end={100} suffix="%" />, label: 'perquè veuen resultats reals' },
+              { num: '48h', label: 'posada en marxa des del primer contacte' },
             ].map(({ num, label }) => (
               <div key={label}>
                 <div style={{ fontSize: 'clamp(1.6rem, 3vw, 2.2rem)', fontWeight: 900, letterSpacing: '-0.03em', color: '#fff', lineHeight: 1 }}>{num}</div>
@@ -529,9 +529,9 @@ export default function App() {
 
               <div className="about-stats" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 24, paddingTop: 32, borderTop: '1px solid rgba(255,255,255,0.07)' }}>
                 {[
-                  { n: '3', l: 'Ecommerces actius' },
-                  { n: '18', l: 'Pàgines de generació de leads' },
-                  { n: '100%', l: 'Confiança' },
+                  { n: <Counter end={3} suffix="+" />, l: 'Ecommerces actius' },
+                  { n: <Counter end={18} suffix="+" />, l: 'Pàgines de generació de leads' },
+                  { n: <Counter end={100} suffix="%" />, l: 'Confiança' },
                 ].map(({ n, l }) => (
                   <div key={l}>
                     <div style={{ fontSize: 22, fontWeight: 900, color: '#FF6600', letterSpacing: '-0.02em' }}>{n}</div>
