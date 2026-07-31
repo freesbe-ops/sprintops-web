@@ -290,7 +290,6 @@ export default function App() {
           <div className="fade-up d650" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '24px 48px', paddingTop: 32, borderTop: '1px solid rgba(255,255,255,0.07)', maxWidth: 800 }}>
             {[
               { num: <Counter end={300} suffix="%" />, label: 'ROAS de mitjana per als nostres clients' },
-              { num: <Counter end={2} suffix="+" />, label: 'obrim botigues que funcionen' },
               { num: <Counter end={100} suffix="%" />, label: 'de recurrència dels partners' },
               { num: <Counter end={28} suffix=" dies" />, label: 'per tenir el ecommerce llest i facturant' },
             ].map(({ num, label }) => (
