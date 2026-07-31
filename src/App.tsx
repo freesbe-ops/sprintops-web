@@ -291,8 +291,8 @@ export default function App() {
             {[
               { num: <Counter end={300} suffix="%" />, label: 'ROAS de mitjana per als nostres clients' },
               { num: <Counter end={2} suffix="+" />, label: 'obrim botigues que funcionen' },
-              { num: <Counter end={100} suffix="%" />, label: 'perquè veuen resultats reals' },
-              { num: '48h', label: 'posada en marxa des del primer contacte' },
+              { num: <Counter end={100} suffix="%" />, label: 'de recurrència dels partners' },
+              { num: <Counter end={28} suffix=" dies" />, label: 'per tenir el ecommerce llest i facturant' },
             ].map(({ num, label }) => (
               <div key={label}>
                 <div style={{ fontSize: 'clamp(1.6rem, 3vw, 2.2rem)', fontWeight: 900, letterSpacing: '-0.03em', color: '#fff', lineHeight: 1 }}>{num}</div>
