@@ -576,7 +576,7 @@ export default function App() {
               <div style={{ marginTop: 36, padding: '20px 24px', background: 'rgba(255,102,0,0.07)', borderLeft: '3px solid #FF6600' }}>
                 <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#FF6600', marginBottom: 6 }}>Places limitades</div>
                 <div style={{ fontSize: 13, color: 'rgba(255,255,255,0.5)', lineHeight: 1.65 }}>
-                  Treballem amb un màxim de 3 a l'hora. Això garanteix que cada client tingui l'atenció i la dedicació que mereix.
+                  Treballem amb un màxim de projectes a l'hora. Això garanteix que cada client tingui l'atenció i la dedicació que mereix.
                 </div>
               </div>
             </div>
