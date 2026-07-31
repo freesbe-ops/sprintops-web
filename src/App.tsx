@@ -512,7 +512,7 @@ export default function App() {
                 <span style={{ color: '#FF6600' }}>Potenciem les teves vendes.</span>
               </h2>
               <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.55)', lineHeight: 1.8, marginBottom: 16 }}>
-                Més de 8 anys gestionant ecommerces de totes les mides ens han ensenyat una cosa: el problema mai és el producte, sinó l'execució.
+                Actualment treballem amb 2 clients, entre ells una parella de joves emprenedors. Això ens permet donar una atenció personalitzada i comprometuda a cada projecte.
               </p>
               <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.55)', lineHeight: 1.8, marginBottom: 16 }}>
                 A SprintOps treballem amb molt pocs clients — perquè cada un mereix la nostra atenció plena. Som un equip petit, àgil i directe, que s'implica en cada projecte com si fos el nostre. Cobrim un % de les vendes que generem junts: el nostre èxit depèn del teu.
